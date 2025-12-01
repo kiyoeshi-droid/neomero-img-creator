@@ -1,0 +1,21 @@
+{
+  "pixai": {
+    "url": "https://pixai.art/ja/generator/image",
+    "timeout": 60000,
+    "waitForGeneration": 30000
+  },
+  "neomero": {
+    "url": "https://studio.neomero.com/",
+    "timeout": 120000,
+    "waitForGeneration": 60000
+  },
+  "output": {
+    "imageDir": "./output/images",
+    "videoDir": "./output/videos"
+  },
+  "browser": {
+    "headless": false,
+    "slowMo": 1000
+  }
+}
+

@@ -1,0 +1,3412 @@
+{
+  "characters": [
+    {
+      "name": "常盤 ヒスイ",
+      "prompt": "(fair skin, shiny skin, mauve green hair, medium hair, choppy bangs, twin braids, light yellow eyes, large eyes, cool eyes, tsurime, double eyelids, slender build, 175cm height, E-cup, 19years old)",
+      "bodyPrompts": {
+        "服": [
+          "(anime maid, short sleeves, cleavage, cleavage cutout, \nwhite apron with large frills:1.8, apron tied in a big bow on the back, square neckline, simple chest area with no bow or buttons, mini flared skirt with white frills, neck black ribbon:1.6, white collar only, no buttons:1.6)"
+        ],
+        "下着": [
+          "wearing underwear, lingerie"
+        ],
+        "ヌード": [
+          "nude, naked"
+        ]
+      },
+      "id": "char_1764173813544"
+    },
+    {
+      "name": "天羽 リナ",
+      "prompt": "(gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina)",
+      "bodyPrompts": {
+        "服": [
+          "(black thigh-high socks, zettai ryouiki, wine red fluffy mohair knit wine red sweater dress, cleavage, cleavage cutout), standing, posing, front view)"
+        ],
+        "下着": [
+          "bra"
+        ],
+        "ヌード": [
+          "nude, naked, middle nipples, "
+        ]
+      },
+      "id": "char_1764173865846"
+    },
+    {
+      "name": "星川 セリナ",
+      "prompt": "(fair skin, short hair, black hair, violet dip-dye hair, center flap bangs, violet eyes, large eyes, cat eyes, double eyelids, slender build, 168cm height, large breasts, 19years old)",
+      "bodyPrompts": {
+        "服": [
+          "wearing clothes, casual outfit"
+        ],
+        "下着": [
+          "wearing underwear, lingerie"
+        ],
+        "ヌード": [
+          "nude, naked"
+        ]
+      },
+      "id": "char_1764173911023"
+    },
+    {
+      "name": "西院しほ",
+      "prompt": "(gyaru, pale skin, rosy cheeks, large eyes, double eyelids, slender build, 154cm height, big breasts, 18years old, black hair with gray inner layer, medium hair, wolf cut:1.5, sidelocks, hair over eyes, thick, voluminous, jitome:1.5, black eyes, bright pupils)",
+      "id": "char_1764173942542",
+      "bodyPrompts": {
+        "服": [
+          "wearing clothes, casual outfit"
+        ],
+        "下着": [
+          "wearing underwear, lingerie"
+        ],
+        "ヌード": [
+          "nude, naked"
+        ]
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "default_room",
+      "name": "Bedroom",
+      "prompt": "apartment, bedroom",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474638",
+      "name": "家の中 (Indoors)",
+      "prompt": "indoors, inside a room, inside the house",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474639",
+      "name": "ベッドルーム (Bedroom)",
+      "prompt": "in the bedroom, on the bed",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474640",
+      "name": "リビング (Living Room)",
+      "prompt": "in the living room, in the living",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474641",
+      "name": "キッチン (Kitchen)",
+      "prompt": "in the kitchen",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474642",
+      "name": "バスルーム (Bathroom)",
+      "prompt": "in the bathroom",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474643",
+      "name": "書斎 (Study)",
+      "prompt": "in the study",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474644",
+      "name": "玄関 (Foyer)",
+      "prompt": "in the foyer, entrance hall",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474645",
+      "name": "教室 (Classroom)",
+      "prompt": "in the classroom, school desk",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474646",
+      "name": "オフィス (Office)",
+      "prompt": "in the office, office desk",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474647",
+      "name": "図書館 (Library)",
+      "prompt": "in the library, bookshelves",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474648",
+      "name": "カフェ (Cafe)",
+      "prompt": "in the cafe, coffee shop",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474649",
+      "name": "レストラン (Restaurant)",
+      "prompt": "in the restaurant",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474650",
+      "name": "バー (Bar)",
+      "prompt": "in the bar, bar counter",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474651",
+      "name": "コンビニ (Convenience Store)",
+      "prompt": "in the convenience store",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474652",
+      "name": "スーパー (Supermarket)",
+      "prompt": "in the supermarket",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474653",
+      "name": "ジム (Gym)",
+      "prompt": "in the gym, fitness center",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474654",
+      "name": "病院 (Hospital)",
+      "prompt": "in the hospital, hospital room",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474655",
+      "name": "街中 (City Street)",
+      "prompt": "on the street, city street, urban",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474656",
+      "name": "路地裏 (Back Alley)",
+      "prompt": "in the back alley, dark alley",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474657",
+      "name": "公園 (Park)",
+      "prompt": "in the park, park bench",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474658",
+      "name": "ビーチ (Beach)",
+      "prompt": "on the beach, seaside, ocean view",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474659",
+      "name": "プール (Pool)",
+      "prompt": "at the pool, swimming pool",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474660",
+      "name": "駅 (Train Station)",
+      "prompt": "at the train station, platform",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474661",
+      "name": "神社 (Shrine)",
+      "prompt": "at the shrine, shinto shrine",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    },
+    {
+      "id": "loc_1764176474662",
+      "name": "温泉 (Onsen)",
+      "prompt": "in the onsen, hot spring",
+      "weatherTimePrompts": [
+        "daytime, sunny, clear sky",
+        "sunset, evening, orange sky",
+        "night, night view, starry sky",
+        "morning, morning light",
+        "cloudy, overcast",
+        "raining, rainy day"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_1",
+      "action": "表情",
+      "tag": "照れ顔",
+      "prompt": "blushing, shy face",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_4"
+      ],
+      "section": "雰囲気作り",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_47",
+        "pose_48",
+        "pose_49",
+        "pose_52",
+        "pose_53"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": false,
+      "sex": false
+    },
+    {
+      "id": "scene_2",
+      "action": "フレンチキス",
+      "tag": "ディープキス",
+      "prompt": "deep kiss, french kiss, tongue kissing, faceless male",
+      "expressions": [
+        "expr_29",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_46",
+        "expr_49"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_36",
+        "pose_34",
+        "pose_18",
+        "pose_2",
+        "pose_3"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_9",
+        "comp_11",
+        "comp_12"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_3",
+      "action": "手コキ",
+      "tag": "手コキしている",
+      "prompt": "handjob, penis",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_7",
+        "pose_8"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_4",
+      "action": "表情",
+      "tag": "笑顔",
+      "prompt": "smile, happy face",
+      "expressions": [
+        "expr_5",
+        "expr_6",
+        "expr_7",
+        "expr_8",
+        "expr_9"
+      ],
+      "section": "雰囲気作り",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_43",
+        "pose_50",
+        "pose_45",
+        "pose_46",
+        "pose_51"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": false,
+      "sex": false
+    },
+    {
+      "id": "scene_5",
+      "action": "フェラ",
+      "tag": "フェラチオをしている",
+      "prompt": "blowjob, fellatio, penis",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_8",
+        "pose_7",
+        "pose_6",
+        "pose_9",
+        "pose_2",
+        "pose_3",
+        "pose_35",
+        "pose_52"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_6",
+      "action": "表情",
+      "tag": "悲しい顔",
+      "prompt": "sad face",
+      "expressions": [
+        "expr_11",
+        "expr_12",
+        "expr_13"
+      ],
+      "section": "雰囲気作り",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_47",
+        "pose_48",
+        "pose_52",
+        "pose_14",
+        "pose_53"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": false,
+      "sex": false
+    },
+    {
+      "id": "scene_7",
+      "action": "表情",
+      "tag": "ほてった顔",
+      "prompt": "flushed face, aroused",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33"
+      ],
+      "section": "前戯への予兆",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_2",
+        "pose_3",
+        "pose_47",
+        "pose_36",
+        "pose_34"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_8",
+      "action": "表情",
+      "tag": "怒り顔",
+      "prompt": "angry face, annoyed",
+      "expressions": [
+        "expr_21",
+        "expr_22",
+        "expr_23"
+      ],
+      "section": "雰囲気作り",
+      "poses": [
+        "pose_20",
+        "pose_42",
+        "pose_21",
+        "pose_53"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": false,
+      "sex": false
+    },
+    {
+      "id": "scene_9",
+      "action": "キス",
+      "tag": "キス顔",
+      "prompt": "kissing face, lips pouting",
+      "expressions": [
+        "expr_29",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_46",
+        "expr_49"
+      ],
+      "section": "前戯への予兆",
+      "poses": [
+        "pose_20",
+        "pose_6",
+        "pose_36",
+        "pose_34",
+        "pose_18",
+        "pose_2",
+        "pose_3",
+        "pose_47"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_10",
+      "action": "乳揉み",
+      "tag": "胸を揉まれている",
+      "prompt": "groping breasts",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_11",
+      "action": "パイズリ",
+      "tag": "パイズリをしている",
+      "prompt": "paizuri, breast sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_12",
+      "action": "乳首責め",
+      "tag": "乳首を触られている",
+      "prompt": "nipple play, touching nipples",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_13",
+      "action": "オナニー",
+      "tag": "オナニーをしている",
+      "prompt": "masturbation, touching self",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42",
+        "expr_43"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_14",
+      "action": "絶頂・潮吹き",
+      "tag": "潮吹きをしている",
+      "prompt": "squirting, female ejaculation, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_40",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_15",
+      "action": "挿入待ち",
+      "tag": "挿入を待っている",
+      "prompt": "high quality, detailed, penis",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_46"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_16",
+      "action": "正常位",
+      "tag": "正常位で挿入している",
+      "prompt": "missionary position, sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_17",
+      "action": "騎乗位",
+      "tag": "騎乗位で挿入している",
+      "prompt": "cowgirl position, straddling, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_43",
+        "pose_50",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_18",
+      "action": "後背位",
+      "tag": "後背位で挿入している",
+      "prompt": "doggystyle, from behind, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_4",
+        "pose_7",
+        "pose_35",
+        "pose_9",
+        "pose_8",
+        "pose_21",
+        "pose_37",
+        "pose_47",
+        "pose_48",
+        "pose_52",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_19",
+      "action": "松葉崩し",
+      "tag": "松葉崩しで挿入している",
+      "prompt": "mating press, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_20",
+      "action": "素股",
+      "tag": "素股している",
+      "prompt": "sumata, femoral sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_21",
+      "action": "射精_顔",
+      "tag": "顔に射精されている",
+      "prompt": "cum on face, facial, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_8",
+        "pose_7",
+        "pose_35",
+        "pose_47",
+        "pose_48",
+        "pose_49",
+        "pose_52"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_22",
+      "action": "射精_胸",
+      "tag": "胸に射精されている",
+      "prompt": "cum on breasts, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_23",
+      "action": "射精_顔・口内",
+      "tag": "口内に射精されている",
+      "prompt": "cum in mouth, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_24",
+      "action": "射精_中出し",
+      "tag": "中出しされている",
+      "prompt": "creampie, cum inside, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_30",
+      "action": "表情",
+      "tag": "トロ顔",
+      "prompt": "ahegao, rolling eyes, tongue out",
+      "expressions": [
+        "expr_30",
+        "expr_33",
+        "expr_36",
+        "expr_37",
+        "expr_43"
+      ],
+      "section": "前戯への予兆",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_18",
+        "pose_36",
+        "pose_52"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_31",
+      "action": "表情",
+      "tag": "アヘ顔",
+      "prompt": "ahegao, extreme orgasm face, penis",
+      "expressions": [
+        "expr_35",
+        "expr_37",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_40",
+        "pose_54",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_37",
+      "action": "パイズリ",
+      "tag": "パイズリをしている",
+      "prompt": "paizuri, breast sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_38",
+      "action": "乳首責め",
+      "tag": "乳首を触れている",
+      "prompt": "high quality, detailed",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_40",
+      "action": "絶頂・潮吹き",
+      "tag": "潮吹きをしている",
+      "prompt": "squirting, female ejaculation, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_40",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_42",
+      "action": "正常位",
+      "tag": "正常位で挿入されている",
+      "prompt": "missionary position, sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_43",
+      "action": "騎乗位",
+      "tag": "騎乗位で挿入している",
+      "prompt": "cowgirl position, straddling, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_43",
+        "pose_50",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_46",
+      "action": "後背位",
+      "tag": "後背位で挿入している",
+      "prompt": "doggystyle, from behind, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_4",
+        "pose_7",
+        "pose_35",
+        "pose_9",
+        "pose_8",
+        "pose_21",
+        "pose_37",
+        "pose_47",
+        "pose_48",
+        "pose_52",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_47",
+      "action": "松葉崩し",
+      "tag": "松葉崩しで挿入している",
+      "prompt": "mating press, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_48",
+      "action": "素股",
+      "tag": "素股している",
+      "prompt": "sumata, femoral sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_49",
+      "action": "射精_顔",
+      "tag": "顔に射精されている",
+      "prompt": "cum on face, facial, penis",
+      "expressions": [
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "絶頂",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_8",
+        "pose_7",
+        "pose_35",
+        "pose_47",
+        "pose_48",
+        "pose_49",
+        "pose_52"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_5",
+        "comp_8",
+        "comp_9",
+        "comp_16"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_66",
+      "action": "乳首責め",
+      "tag": "乳首を触れている",
+      "prompt": "high quality, detailed",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42"
+      ],
+      "section": "前戯・奉仕",
+      "poses": [
+        "pose_2",
+        "pose_3",
+        "pose_6",
+        "pose_20",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_70",
+      "action": "正常位",
+      "tag": "正常位で挿入されている",
+      "prompt": "missionary position, sex, penis",
+      "expressions": [
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_35",
+        "expr_41",
+        "expr_42",
+        "expr_43",
+        "expr_44",
+        "expr_45",
+        "expr_47"
+      ],
+      "section": "本番・セックス",
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40",
+        "pose_47",
+        "pose_48",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_13",
+        "angle_14"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_80",
+      "action": "クンニ・顔面騎乗位",
+      "tag": "クンニされている",
+      "prompt": "cunnilingus",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_29",
+        "expr_30",
+        "expr_31",
+        "expr_32",
+        "expr_33",
+        "expr_34",
+        "expr_41",
+        "expr_42",
+        "expr_43"
+      ],
+      "poses": [
+        "pose_2",
+        "pose_34",
+        "pose_36",
+        "pose_18",
+        "pose_21",
+        "pose_54",
+        "pose_40"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184316666",
+      "tag": "自分の両手で拡げるくぱぁ",
+      "prompt": "open vagina with my hands, open legs, close up vagina",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_29",
+        "expr_32",
+        "expr_33"
+      ],
+      "poses": [
+        "pose_6",
+        "pose_2",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184316667",
+      "tag": "片手のチョキで広げるくぱぁ",
+      "prompt": "open vagina with 2fingers, show pussy, open legs, close up vagina",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_29",
+        "expr_32",
+        "expr_33"
+      ],
+      "poses": [
+        "pose_6",
+        "pose_2",
+        "pose_21",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184316667",
+      "tag": "後ろからお尻といっしょに拡げるくぱぁ",
+      "prompt": "open hip with my hands, from back, close up vagina, show pussy",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_29",
+        "expr_32",
+        "expr_33"
+      ],
+      "poses": [
+        "pose_20",
+        "pose_35",
+        "pose_4",
+        "pose_7",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184316667",
+      "tag": "前から他人に拡げられるくぱぁ",
+      "prompt": "man open vagina with hands, open legs, close up vagina",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_46"
+      ],
+      "poses": [
+        "pose_6",
+        "pose_2",
+        "pose_21",
+        "pose_47",
+        "pose_48",
+        "pose_52"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184316667",
+      "tag": "後ろから男に拡げられるくぱぁ",
+      "prompt": "man behind girl, man open vagina with hands, open legs, close up vagina",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_1",
+        "expr_2",
+        "expr_3",
+        "expr_29",
+        "expr_32",
+        "expr_33",
+        "expr_46"
+      ],
+      "poses": [
+        "pose_6",
+        "pose_2",
+        "pose_21",
+        "pose_35",
+        "pose_47",
+        "pose_48"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184539873",
+      "tag": "仰け反り絶頂",
+      "prompt": "Adam's apple, leaning back, arched back, head back, woman on top, penis",
+      "section": "絶頂",
+      "expressions": [
+        "expr_43",
+        "expr_42",
+        "expr_44",
+        "expr_35",
+        "expr_47"
+      ],
+      "poses": [
+        "pose_34",
+        "pose_36",
+        "pose_54",
+        "pose_6",
+        "pose_20"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_1764184539874",
+      "tag": "しゃがんで後ろに手をつく仰け反り絶頂",
+      "prompt": "squatting, hands on behind, knee apart, Adam's apple, leaning back, arched back, head back, woman on top, penis",
+      "section": "絶頂",
+      "expressions": [
+        "expr_43",
+        "expr_42",
+        "expr_44",
+        "expr_35",
+        "expr_47"
+      ],
+      "poses": [
+        "pose_9",
+        "pose_41",
+        "pose_21",
+        "pose_34",
+        "pose_54"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    },
+    {
+      "id": "scene_1764184539874",
+      "tag": "ブリッジ姿勢でのオナニー",
+      "prompt": "bridge pose, masturbation, arched back, head back",
+      "section": "前戯・奉仕",
+      "expressions": [
+        "expr_29",
+        "expr_33",
+        "expr_41",
+        "expr_42",
+        "expr_43"
+      ],
+      "poses": [
+        "pose_40",
+        "pose_34",
+        "pose_54",
+        "pose_21"
+      ],
+      "compositions": [
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_13"
+      ],
+      "nsfw": true,
+      "sex": false
+    },
+    {
+      "id": "scene_1764184539874",
+      "tag": "エビ反り絶頂",
+      "prompt": "arched back, head back, Adam's apple, penis",
+      "section": "絶頂",
+      "expressions": [
+        "expr_43",
+        "expr_42",
+        "expr_44",
+        "expr_35",
+        "expr_47",
+        "expr_45"
+      ],
+      "poses": [
+        "pose_34",
+        "pose_54",
+        "pose_40",
+        "pose_21",
+        "pose_50"
+      ],
+      "compositions": [
+        "comp_2",
+        "comp_3",
+        "comp_4",
+        "comp_8",
+        "comp_7",
+        "comp_9",
+        "comp_11",
+        "comp_12",
+        "comp_10",
+        "comp_15"
+      ],
+      "angles": [
+        "angle_1",
+        "angle_2",
+        "angle_6",
+        "angle_7",
+        "angle_9",
+        "angle_10",
+        "angle_11",
+        "angle_14",
+        "angle_15"
+      ],
+      "nsfw": true,
+      "sex": true
+    }
+  ],
+  "videoPrompts": [
+    {
+      "id": "default_video",
+      "prompt": "cinematic movement, high quality",
+      "category": "general"
+    }
+  ],
+  "expressions": [
+    {
+      "category": "照れ・赤面",
+      "items": [
+        {
+          "id": "expr_1",
+          "name": "照れ・赤面",
+          "prompt": "blushing, looking away, shy smile"
+        },
+        {
+          "id": "expr_2",
+          "name": "はにかみ笑顔",
+          "prompt": "bashful smile, slight blush, looking down"
+        },
+        {
+          "id": "expr_3",
+          "name": "恥ずかしがって隠れる",
+          "prompt": "blushing, hiding face with hands"
+        },
+        {
+          "id": "expr_4",
+          "name": "甘えた顔",
+          "prompt": "clinging pose, blushing, teary eyes"
+        }
+      ]
+    },
+    {
+      "category": "笑顔・喜び",
+      "items": [
+        {
+          "id": "expr_5",
+          "name": "微笑み",
+          "prompt": "gentle smile, warm expression"
+        },
+        {
+          "id": "expr_6",
+          "name": "笑顔",
+          "prompt": "smile, happy face"
+        },
+        {
+          "id": "expr_7",
+          "name": "にやけ顔・いたずら",
+          "prompt": "smirking, mischievous grin"
+        },
+        {
+          "id": "expr_8",
+          "name": "ドヤ顔",
+          "prompt": "confident smile, smug expression"
+        },
+        {
+          "id": "expr_9",
+          "name": "あざと顔",
+          "prompt": "wink, tongue out, playful look"
+        },
+        {
+          "id": "expr_10",
+          "name": "舌を出す",
+          "prompt": "tongue out"
+        }
+      ]
+    },
+    {
+      "category": "泣き顔・悲しみ",
+      "items": [
+        {
+          "id": "expr_11",
+          "name": "泣き顔（涙うるうる）",
+          "prompt": "teary eyes, sad expression"
+        },
+        {
+          "id": "expr_12",
+          "name": "悲しい顔",
+          "prompt": "sad face"
+        },
+        {
+          "id": "expr_13",
+          "name": "泣き笑い",
+          "prompt": "smiling while crying, soft eyes"
+        },
+        {
+          "id": "expr_14",
+          "name": "おねだり顔",
+          "prompt": "puppy eyes, hands clasped"
+        }
+      ]
+    },
+    {
+      "category": "無表情・クール",
+      "items": [
+        {
+          "id": "expr_15",
+          "name": "無表情（クール）",
+          "prompt": "expressionless, neutral face"
+        },
+        {
+          "id": "expr_16",
+          "name": "キメ顔",
+          "prompt": "serious face, looking straight, sparkles"
+        },
+        {
+          "id": "expr_17",
+          "name": "疲れた顔",
+          "prompt": "tired eyes, slouched posture, faint smile"
+        },
+        {
+          "id": "expr_18",
+          "name": "夜風に佇む表情",
+          "prompt": "calm expression, hair swaying, soft lighting"
+        }
+      ]
+    },
+    {
+      "category": "驚き・困惑",
+      "items": [
+        {
+          "id": "expr_19",
+          "name": "驚き",
+          "prompt": "surprised, eyes wide open, open mouth"
+        },
+        {
+          "id": "expr_20",
+          "name": "困惑",
+          "prompt": "confused, puzzled expression"
+        }
+      ]
+    },
+    {
+      "category": "怒り",
+      "items": [
+        {
+          "id": "expr_21",
+          "name": "怒り",
+          "prompt": "angry face, annoyed"
+        },
+        {
+          "id": "expr_22",
+          "name": "怒り＋赤面（ツンデレ）",
+          "prompt": "blushing angrily, arms crossed, pouty face"
+        },
+        {
+          "id": "expr_23",
+          "name": "ふくれっ面",
+          "prompt": "pouting, cheeks puffed out"
+        }
+      ]
+    },
+    {
+      "category": "恐怖・絶望",
+      "items": [
+        {
+          "id": "expr_24",
+          "name": "怯え顔",
+          "prompt": "scared, trembling, wide eyes"
+        },
+        {
+          "id": "expr_25",
+          "name": "恐怖",
+          "prompt": "fearful expression, terrified"
+        },
+        {
+          "id": "expr_26",
+          "name": "絶望",
+          "prompt": "despair, hopeless expression"
+        }
+      ]
+    },
+    {
+      "category": "不安・苦しさ",
+      "items": [
+        {
+          "id": "expr_27",
+          "name": "不安",
+          "prompt": "worried, anxious expression"
+        },
+        {
+          "id": "expr_28",
+          "name": "苦しさ",
+          "prompt": "suffering, pained expression"
+        }
+      ]
+    },
+    {
+      "category": "情熱・快楽（軽度）",
+      "items": [
+        {
+          "id": "expr_29",
+          "name": "ほてった顔",
+          "prompt": "flushed face, aroused"
+        },
+        {
+          "id": "expr_30",
+          "name": "リラックスした顔",
+          "prompt": "relaxed face"
+        },
+        {
+          "id": "expr_31",
+          "name": "瞳を輝かせる",
+          "prompt": "glowing eyes, glowing pupils"
+        },
+        {
+          "id": "expr_32",
+          "name": "目尻が下がる",
+          "prompt": "narrowed eyes"
+        },
+        {
+          "id": "expr_33",
+          "name": "口をわずかに開ける",
+          "prompt": "parted lips"
+        },
+        {
+          "id": "expr_34",
+          "name": "うっとり",
+          "prompt": "heart-shaped pupils"
+        },
+        {
+          "id": "expr_35",
+          "name": "よだれを垂らす",
+          "prompt": "drooling"
+        }
+      ]
+    },
+    {
+      "category": "快楽・恍惚（中程度）",
+      "items": [
+        {
+          "id": "expr_36",
+          "name": "トロ顔・放心",
+          "prompt": "dazed expression, blank stare"
+        },
+        {
+          "id": "expr_37",
+          "name": "アヘ顔",
+          "prompt": "ahegao, extreme orgasm face"
+        },
+        {
+          "id": "expr_38",
+          "name": "ゲス顔",
+          "prompt": "lewd face, perverted expression"
+        },
+        {
+          "id": "expr_39",
+          "name": "快楽",
+          "prompt": "pleasure, ecstatic expression"
+        },
+        {
+          "id": "expr_40",
+          "name": "恍惚",
+          "prompt": "ecstasy, blissful expression"
+        }
+      ]
+    },
+    {
+      "category": "快楽・恍惚（強い）",
+      "items": [
+        {
+          "id": "expr_41",
+          "name": "快楽を我慢する顔",
+          "prompt": "holding back pleasure, trying to suppress moan"
+        },
+        {
+          "id": "expr_42",
+          "name": "快楽に身悶える顔",
+          "prompt": "writhing in pleasure, squirming"
+        },
+        {
+          "id": "expr_43",
+          "name": "イキ顔",
+          "prompt": "orgasm face, climax expression"
+        },
+        {
+          "id": "expr_44",
+          "name": "昇天・のけぞる",
+          "prompt": "arching back, ecstasy, face not visible"
+        },
+        {
+          "id": "expr_45",
+          "name": "快楽で気絶した顔",
+          "prompt": "passed out from pleasure, unconscious from ecstasy"
+        },
+        {
+          "id": "expr_46",
+          "name": "キス待ちの顔",
+          "prompt": "waiting for kiss, lips parted, expectant expression"
+        },
+        {
+          "id": "expr_47",
+          "name": "高揚感で体を震わす",
+          "prompt": "twitching, wince from excitement"
+        }
+      ]
+    },
+    {
+      "category": "その他",
+      "items": [
+        {
+          "id": "expr_48",
+          "name": "寝ぼけ顔",
+          "prompt": "sleepy eyes, messy hair, yawning"
+        },
+        {
+          "id": "expr_49",
+          "name": "キス顔",
+          "prompt": "kissing face, lips pouting"
+        }
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "category": "横たわる・寝る",
+      "items": [
+        {
+          "id": "pose_1",
+          "name": "横たわる",
+          "prompt": "lying"
+        },
+        {
+          "id": "pose_2",
+          "name": "仰向け",
+          "prompt": "on back"
+        },
+        {
+          "id": "pose_3",
+          "name": "横向き",
+          "prompt": "on side"
+        },
+        {
+          "id": "pose_4",
+          "name": "うつ伏せ",
+          "prompt": "on stomach"
+        },
+        {
+          "id": "pose_5",
+          "name": "うつ伏せで足を立てる",
+          "prompt": "the pose"
+        }
+      ]
+    },
+    {
+      "category": "座る",
+      "items": [
+        {
+          "id": "pose_6",
+          "name": "座る",
+          "prompt": "sitting"
+        },
+        {
+          "id": "pose_7",
+          "name": "ひざまずく",
+          "prompt": "kneeling"
+        },
+        {
+          "id": "pose_8",
+          "name": "片膝をつく",
+          "prompt": "on one knee"
+        },
+        {
+          "id": "pose_9",
+          "name": "しゃがむ",
+          "prompt": "squatting"
+        },
+        {
+          "id": "pose_10",
+          "name": "足を組む",
+          "prompt": "crossed legs"
+        },
+        {
+          "id": "pose_11",
+          "name": "胎児の姿勢",
+          "prompt": "fetal position"
+        },
+        {
+          "id": "pose_12",
+          "name": "蝶々座り",
+          "prompt": "butterfly sitting"
+        },
+        {
+          "id": "pose_13",
+          "name": "あぐらをかく",
+          "prompt": "indian style"
+        },
+        {
+          "id": "pose_14",
+          "name": "膝を抱える",
+          "prompt": "hugging own legs"
+        },
+        {
+          "id": "pose_15",
+          "name": "正座",
+          "prompt": "seiza"
+        },
+        {
+          "id": "pose_16",
+          "name": "割座",
+          "prompt": "wariza"
+        },
+        {
+          "id": "pose_17",
+          "name": "横座り",
+          "prompt": "yokozuwari"
+        },
+        {
+          "id": "pose_18",
+          "name": "もたれかかる",
+          "prompt": "reclining"
+        },
+        {
+          "id": "pose_19",
+          "name": "後ろ向きに座る",
+          "prompt": "sitting backwards"
+        }
+      ]
+    },
+    {
+      "category": "立つ",
+      "items": [
+        {
+          "id": "pose_20",
+          "name": "立つ",
+          "prompt": "standing"
+        },
+        {
+          "id": "pose_21",
+          "name": "脚を広げる",
+          "prompt": "legs apart"
+        },
+        {
+          "id": "pose_22",
+          "name": "片足立ち",
+          "prompt": "standing on one leg"
+        },
+        {
+          "id": "pose_23",
+          "name": "コントラポスト",
+          "prompt": "contrapposto"
+        }
+      ]
+    },
+    {
+      "category": "動作",
+      "items": [
+        {
+          "id": "pose_24",
+          "name": "歩く",
+          "prompt": "walking"
+        },
+        {
+          "id": "pose_25",
+          "name": "走る",
+          "prompt": "running"
+        },
+        {
+          "id": "pose_26",
+          "name": "ジャンプする",
+          "prompt": "jumping"
+        },
+        {
+          "id": "pose_27",
+          "name": "前方へジャンプ",
+          "prompt": "hopping"
+        },
+        {
+          "id": "pose_28",
+          "name": "ストレッチ",
+          "prompt": "stretching"
+        },
+        {
+          "id": "pose_29",
+          "name": "ヨガ",
+          "prompt": "yoga"
+        },
+        {
+          "id": "pose_30",
+          "name": "バランスをとる",
+          "prompt": "balancing"
+        },
+        {
+          "id": "pose_31",
+          "name": "お辞儀",
+          "prompt": "bowing"
+        },
+        {
+          "id": "pose_32",
+          "name": "カーテシー",
+          "prompt": "curtsey"
+        },
+        {
+          "id": "pose_33",
+          "name": "あくびをする",
+          "prompt": "yawning"
+        }
+      ]
+    },
+    {
+      "category": "体の傾き・姿勢",
+      "items": [
+        {
+          "id": "pose_34",
+          "name": "背中を反らせる",
+          "prompt": "arched back"
+        },
+        {
+          "id": "pose_35",
+          "name": "前屈み",
+          "prompt": "bent over"
+        },
+        {
+          "id": "pose_36",
+          "name": "後ろに寄りかかる",
+          "prompt": "leaning back"
+        },
+        {
+          "id": "pose_37",
+          "name": "腕で体を支える",
+          "prompt": "arm support"
+        },
+        {
+          "id": "pose_38",
+          "name": "前に寄りかかる",
+          "prompt": "leaning forward"
+        },
+        {
+          "id": "pose_39",
+          "name": "猫背",
+          "prompt": "slouching"
+        },
+        {
+          "id": "pose_40",
+          "name": "三点着地",
+          "prompt": "superhero landing"
+        }
+      ]
+    },
+    {
+      "category": "手のポーズ",
+      "items": [
+        {
+          "id": "pose_41",
+          "name": "手を後ろに",
+          "prompt": "arms behind back"
+        },
+        {
+          "id": "pose_42",
+          "name": "手を腰に",
+          "prompt": "hands on hips"
+        },
+        {
+          "id": "pose_43",
+          "name": "手を上げる",
+          "prompt": "arms up"
+        },
+        {
+          "id": "pose_44",
+          "name": "手を広げる",
+          "prompt": "arms spread"
+        },
+        {
+          "id": "pose_45",
+          "name": "手を組む",
+          "prompt": "hands together"
+        },
+        {
+          "id": "pose_46",
+          "name": "手を胸に",
+          "prompt": "hands on chest"
+        },
+        {
+          "id": "pose_47",
+          "name": "手を顔に",
+          "prompt": "hands on face"
+        },
+        {
+          "id": "pose_48",
+          "name": "手を頭に",
+          "prompt": "hands on head"
+        },
+        {
+          "id": "pose_49",
+          "name": "手を口に",
+          "prompt": "hand over mouth"
+        },
+        {
+          "id": "pose_50",
+          "name": "手を伸ばす",
+          "prompt": "arms outstretched"
+        }
+      ]
+    },
+    {
+      "category": "頭・首",
+      "items": [
+        {
+          "id": "pose_51",
+          "name": "上を向く",
+          "prompt": "looking up"
+        },
+        {
+          "id": "pose_52",
+          "name": "下を向く",
+          "prompt": "looking down"
+        },
+        {
+          "id": "pose_53",
+          "name": "頭を傾げる",
+          "prompt": "head tilt"
+        },
+        {
+          "id": "pose_54",
+          "name": "頭を後ろに反らす",
+          "prompt": "head back"
+        }
+      ]
+    },
+    {
+      "category": "演出・キャラクター性",
+      "items": [
+        {
+          "id": "pose_55",
+          "name": "うさぎポーズ",
+          "prompt": "rabbit pose"
+        },
+        {
+          "id": "pose_56",
+          "name": "角ポーズ",
+          "prompt": "horns pose"
+        },
+        {
+          "id": "pose_57",
+          "name": "猫ポーズ",
+          "prompt": "paw pose"
+        },
+        {
+          "id": "pose_58",
+          "name": "ガオーポーズ",
+          "prompt": "claw pose"
+        },
+        {
+          "id": "pose_59",
+          "name": "幽霊ポーズ",
+          "prompt": "ghost pose"
+        },
+        {
+          "id": "pose_60",
+          "name": "お嬢様ポーズ",
+          "prompt": "ojou-sama pose"
+        },
+        {
+          "id": "pose_61",
+          "name": "悪役ポーズ",
+          "prompt": "villain pose"
+        },
+        {
+          "id": "pose_62",
+          "name": "ゾンビポーズ",
+          "prompt": "zombie pose"
+        }
+      ]
+    }
+  ],
+  "compositions": [
+    {
+      "category": "構図",
+      "items": [
+        {
+          "id": "comp_1",
+          "name": "full body（全身）",
+          "prompt": "full body"
+        },
+        {
+          "id": "comp_2",
+          "name": "face（顔）",
+          "prompt": "face"
+        },
+        {
+          "id": "comp_3",
+          "name": "face focus（顔に焦点）",
+          "prompt": "face focus"
+        },
+        {
+          "id": "comp_4",
+          "name": "close up（顔を強調）",
+          "prompt": "close up"
+        },
+        {
+          "id": "comp_5",
+          "name": "portrait（顔・似顔絵・肖像画）",
+          "prompt": "portrait"
+        },
+        {
+          "id": "comp_6",
+          "name": "profile（横顔）",
+          "prompt": "profile"
+        },
+        {
+          "id": "comp_7",
+          "name": "cowboy shot（頭部から膝あたりまで）",
+          "prompt": "cowboy shot"
+        },
+        {
+          "id": "comp_8",
+          "name": "upper body（上半身）",
+          "prompt": "upper body"
+        },
+        {
+          "id": "comp_9",
+          "name": "front view（正面から）",
+          "prompt": "front view"
+        },
+        {
+          "id": "comp_10",
+          "name": "back view（後ろから）",
+          "prompt": "back view"
+        },
+        {
+          "id": "comp_11",
+          "name": "side view（横から）",
+          "prompt": "side view"
+        },
+        {
+          "id": "comp_12",
+          "name": "from side（横から）",
+          "prompt": "from side"
+        },
+        {
+          "id": "comp_13",
+          "name": "from above（上から）",
+          "prompt": "from above"
+        },
+        {
+          "id": "comp_14",
+          "name": "from below（下から）",
+          "prompt": "from below"
+        },
+        {
+          "id": "comp_15",
+          "name": "from behind（後ろから）",
+          "prompt": "from behind"
+        },
+        {
+          "id": "comp_16",
+          "name": "look at viewer（視聴者目線）",
+          "prompt": "look at viewer"
+        }
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "category": "カメラのアングル",
+      "items": [
+        {
+          "id": "angle_1",
+          "name": "from above（上から）",
+          "prompt": "from above"
+        },
+        {
+          "id": "angle_2",
+          "name": "high angle（上から）",
+          "prompt": "high angle"
+        },
+        {
+          "id": "angle_3",
+          "name": "extreme high angle（すごく上から）",
+          "prompt": "extreme high angle"
+        },
+        {
+          "id": "angle_4",
+          "name": "bird's-eye view（俯瞰）",
+          "prompt": "bird's-eye view"
+        },
+        {
+          "id": "angle_5",
+          "name": "drone shot（ドローンから）",
+          "prompt": "drone shot"
+        },
+        {
+          "id": "angle_6",
+          "name": "from below（下から）",
+          "prompt": "from below"
+        },
+        {
+          "id": "angle_7",
+          "name": "low angle（下から）",
+          "prompt": "low angle"
+        },
+        {
+          "id": "angle_8",
+          "name": "extreme low angle（すごく下から）",
+          "prompt": "extreme low angle"
+        },
+        {
+          "id": "angle_9",
+          "name": "from side（横から）",
+          "prompt": "from side"
+        },
+        {
+          "id": "angle_10",
+          "name": "from behind（後から）",
+          "prompt": "from behind"
+        },
+        {
+          "id": "angle_11",
+          "name": "back shot（後から）",
+          "prompt": "back shot"
+        },
+        {
+          "id": "angle_12",
+          "name": "canted angle（斜め）",
+          "prompt": "canted angle"
+        },
+        {
+          "id": "angle_13",
+          "name": "over the shoulder（肩越し）",
+          "prompt": "over the shoulder"
+        },
+        {
+          "id": "angle_14",
+          "name": "cinematic angle（シネマティックアングル）",
+          "prompt": "cinematic angle"
+        },
+        {
+          "id": "angle_15",
+          "name": "dynamic angle（動的なアングル）",
+          "prompt": "dynamic angle"
+        }
+      ]
+    }
+  ]
+}
