@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neomero キャラクターマネージャー</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 47.4% 11.2%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 47.4% 11.2%)",
+                        primary: { DEFAULT: "hsl(222.2 47.4% 11.2%)", foreground: "hsl(210 40% 98%)" },
+                        secondary: { DEFAULT: "hsl(210 40% 96.1%)", foreground: "hsl(222.2 47.4% 11.2%)" },
+                        destructive: { DEFAULT: "hsl(0 84.2% 60.2%)", foreground: "hsl(210 40% 98%)" },
+                        muted: { DEFAULT: "hsl(210 40% 96.1%)", foreground: "hsl(215.4 16.3% 46.9%)" },
+                        accent: { DEFAULT: "hsl(210 40% 96.1%)", foreground: "hsl(222.2 47.4% 11.2%)" },
+                    },
+                    borderRadius: { lg: "0.5rem", md: "calc(0.5rem - 2px)", sm: "calc(0.5rem - 4px)" },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: rgba(0,0,0,0.2); }
+        .tab-content { transition: opacity 0.2s; }
+        .tab-hidden { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="border-b border-border px-6 flex items-center justify-between bg-background/95 backdrop-blur h-16 shrink-0 z-10">
+        <div class="flex items-center gap-8 h-full">
+            <div class="flex items-center gap-2">
+                <div class="h-6 w-6 rounded-full bg-primary"></div>
+                <h1 class="text-xl font-semibold tracking-tight">Neomero Studio</h1>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="flex h-full">
+                <button onclick="switchTab('characters')" id="nav-characters" class="px-4 h-full border-b-2 border-primary text-sm font-medium transition-colors hover:text-primary focus:outline-none">キャラクター</button>
+                <button onclick="switchTab('locations')" id="nav-locations" class="px-4 h-full border-b-2 border-transparent text-muted-foreground text-sm font-medium transition-colors hover:text-primary focus:outline-none">ロケーション</button>
+                <button onclick="switchTab('scenes')" id="nav-scenes" class="px-4 h-full border-b-2 border-transparent text-muted-foreground text-sm font-medium transition-colors hover:text-primary focus:outline-none">シーン</button>
+                <button onclick="switchTab('generate')" id="nav-generate" class="px-4 h-full border-b-2 border-transparent text-muted-foreground text-sm font-medium transition-colors hover:text-primary focus:outline-none">生成 (Builder)</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-1 overflow-hidden relative bg-background">
+        
+        <!-- VIEW: Characters -->
+        <div id="view-characters" class="tab-content flex w-full h-full">
+            <div class="w-[450px] border-r border-border bg-background flex flex-col min-w-[400px]">
+                <div class="p-6 flex-1 overflow-y-auto">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 id="char-form-title" class="text-lg font-semibold">キャラクター登録</h2>
+                        <button onclick="resetCharForm()" class="text-xs text-muted-foreground hover:text-primary">リセット</button>
+                    </div>
+                    <input type="hidden" id="character-id">
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">キャラクター名</label>
+                            <input type="text" id="char-name" placeholder="例: Gyaru A" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">基本プロンプト</label>
+                            <textarea id="char-prompt" placeholder="(gyaru...)" class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring"></textarea>
+                        </div>
+                        <div class="pt-4 border-t border-border mt-6">
+                            <h3 class="text-sm font-semibold mb-4">服装設定 (Body Prompts)</h3>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between"><label class="text-sm font-medium">服 (Clothes)</label><button onclick="addInput('list-clothes')" class="text-xs border px-2 rounded">+</button></div>
+                                    <div id="list-clothes" class="space-y-2"></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between"><label class="text-sm font-medium">下着 (Underwear)</label><button onclick="addInput('list-underwear')" class="text-xs border px-2 rounded">+</button></div>
+                                    <div id="list-underwear" class="space-y-2"></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between"><label class="text-sm font-medium">ヌード (Nude)</label><button onclick="addInput('list-nude')" class="text-xs border px-2 rounded">+</button></div>
+                                    <div id="list-nude" class="space-y-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-border bg-background/50 backdrop-blur">
+                    <div class="flex gap-3">
+                        <button id="char-cancel-btn" onclick="resetCharForm()" style="display: none;" class="h-10 px-4 w-full rounded-md border text-sm">キャンセル</button>
+                        <button id="char-submit-btn" onclick="saveCharacter()" class="h-10 px-4 w-full rounded-md bg-primary text-primary-foreground text-sm">登録する</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 bg-secondary/30 p-8 overflow-y-auto">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-6">登録済みキャラクター</h2>
+                    <div id="char-list" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: Locations -->
+        <div id="view-locations" class="tab-content tab-hidden flex w-full h-full">
+            <div class="w-[450px] border-r border-border bg-background flex flex-col min-w-[400px]">
+                <div class="p-6 flex-1 overflow-y-auto">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 id="loc-form-title" class="text-lg font-semibold">ロケーション登録</h2>
+                        <button onclick="resetLocForm()" class="text-xs text-muted-foreground hover:text-primary">リセット</button>
+                    </div>
+                    <input type="hidden" id="location-id">
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">ロケーション名</label>
+                            <input type="text" id="loc-name" placeholder="例: Bedroom" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">ロケーションプロンプト</label>
+                            <textarea id="loc-prompt" placeholder="apartment, bedroom..." class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring"></textarea>
+                        </div>
+                        <div class="pt-4 border-t border-border mt-6">
+                            <h3 class="text-sm font-semibold mb-4">時間帯・天候・季節 (Weather/Time/Season)</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><label class="text-sm font-medium">リスト</label><button onclick="addInput('list-weather')" class="text-xs border px-2 rounded">+</button></div>
+                                <div id="list-weather" class="space-y-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-border bg-background/50 backdrop-blur">
+                    <div class="flex gap-3">
+                        <button id="loc-cancel-btn" onclick="resetLocForm()" style="display: none;" class="h-10 px-4 w-full rounded-md border text-sm">キャンセル</button>
+                        <button id="loc-submit-btn" onclick="saveLocation()" class="h-10 px-4 w-full rounded-md bg-primary text-primary-foreground text-sm">登録する</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 bg-secondary/30 p-8 overflow-y-auto">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-6">登録済みロケーション</h2>
+                    <div id="loc-list" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: Scenes -->
+        <div id="view-scenes" class="tab-content tab-hidden flex w-full h-full">
+            <div class="w-[450px] border-r border-border bg-background flex flex-col min-w-[400px]">
+                <div class="p-6 flex-1 overflow-y-auto">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 id="scene-form-title" class="text-lg font-semibold">シーン登録</h2>
+                        <button onclick="resetSceneForm()" class="text-xs text-muted-foreground hover:text-primary">リセット</button>
+                    </div>
+                    <input type="hidden" id="scene-id">
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">タグ（日本語名）</label>
+                            <input type="text" id="scene-tag" placeholder="例: 笑顔" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">シーンプロンプト</label>
+                            <textarea id="scene-prompt" placeholder="smile, happy face..." class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring"></textarea>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">セクション</label>
+                            <select id="scene-section" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring">
+                                <option value="">選択してください...</option>
+                                <option value="雰囲気作り">雰囲気作り</option>
+                                <option value="前戯への予兆">前戯への予兆</option>
+                                <option value="前戯・奉仕">前戯・奉仕</option>
+                                <option value="本番・セックス">本番・セックス</option>
+                                <option value="絶頂">絶頂</option>
+                                <option value="ピロートーク">ピロートーク</option>
+                            </select>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border mt-4">
+                            <label class="text-sm font-medium mb-3 block">タグ</label>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" id="scene-nsfw" class="w-4 h-4 rounded border-input">
+                                    <label for="scene-nsfw" class="text-sm cursor-pointer">NSFW（性的描写を含む）</label>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" id="scene-sex" class="w-4 h-4 rounded border-input">
+                                    <label for="scene-sex" class="text-sm cursor-pointer">SEX（セックス描写を含む）</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border mt-4">
+                            <label class="text-sm font-medium mb-3 block">感情プロンプト（複数選択可）</label>
+                            <div class="mb-2">
+                                <input type="text" id="expr-search" placeholder="感情を検索..." oninput="filterExpressions()" class="w-full h-8 rounded-md border border-input bg-background px-2 text-xs">
+                            </div>
+                            <div id="scene-expressions" class="max-h-80 overflow-y-auto border border-input rounded-md p-3 bg-muted/20 space-y-4">
+                                <!-- 感情チェックボックスはJSで動的に生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border mt-4">
+                            <label class="text-sm font-medium mb-3 block">ポーズ（複数選択可）</label>
+                            <div class="mb-2">
+                                <input type="text" id="pose-search" placeholder="ポーズを検索..." oninput="filterPoses()" class="w-full h-8 rounded-md border border-input bg-background px-2 text-xs">
+                            </div>
+                            <div id="scene-poses" class="max-h-80 overflow-y-auto border border-input rounded-md p-3 bg-muted/20 space-y-4">
+                                <!-- ポーズチェックボックスはJSで動的に生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border mt-4">
+                            <label class="text-sm font-medium mb-3 block">構図（複数選択可）</label>
+                            <div class="mb-2">
+                                <input type="text" id="comp-search" placeholder="構図を検索..." oninput="filterCompositions()" class="w-full h-8 rounded-md border border-input bg-background px-2 text-xs">
+                            </div>
+                            <div id="scene-compositions" class="max-h-80 overflow-y-auto border border-input rounded-md p-3 bg-muted/20 space-y-4">
+                                <!-- 構図チェックボックスはJSで動的に生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border mt-4">
+                            <label class="text-sm font-medium mb-3 block">アングル（複数選択可）</label>
+                            <div class="mb-2">
+                                <input type="text" id="angle-search" placeholder="アングルを検索..." oninput="filterAngles()" class="w-full h-8 rounded-md border border-input bg-background px-2 text-xs">
+                            </div>
+                            <div id="scene-angles" class="max-h-80 overflow-y-auto border border-input rounded-md p-3 bg-muted/20 space-y-4">
+                                <!-- アングルチェックボックスはJSで動的に生成 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-border bg-background/50 backdrop-blur">
+                    <div class="flex gap-3">
+                        <button id="scene-cancel-btn" onclick="resetSceneForm()" style="display: none;" class="h-10 px-4 w-full rounded-md border text-sm">キャンセル</button>
+                        <button id="scene-submit-btn" onclick="saveScene()" class="h-10 px-4 w-full rounded-md bg-primary text-primary-foreground text-sm">登録する</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 bg-secondary/30 p-8 overflow-y-auto">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold">登録済みシーン</h2>
+                        <div class="flex items-center gap-3">
+                            <label class="text-sm text-muted-foreground">並び順:</label>
+                            <select id="scene-sort" onchange="loadScenes()" class="h-9 rounded-md border border-input bg-background px-3 py-1 text-sm focus:ring-2 focus:ring-ring">
+                                <option value="registered">登録順</option>
+                                <option value="section">セクション順</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="scene-list" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: Generate (Builder) -->
+        <div id="view-generate" class="tab-content tab-hidden w-full h-full bg-secondary/30 p-8 overflow-y-auto">
+            <div class="max-w-5xl mx-auto bg-background rounded-xl border border-border shadow-sm p-8">
+                <h2 class="text-2xl font-semibold mb-8">プロンプト生成 (Builder)</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 1. Character -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium flex items-center gap-2"><span class="bg-primary text-primary-foreground rounded-full w-6 h-6 inline-flex items-center justify-center text-xs">1</span> キャラクター選択</h3>
+                        <select id="gen-char-select" onchange="updateGenCharBody()" class="w-full h-10 rounded-md border border-input px-3 text-sm">
+                            <option value="">選択してください...</option>
+                        </select>
+                        
+                        <div id="gen-char-body-area" class="bg-muted/30 p-4 rounded-md border border-border hidden">
+                            <label class="text-sm font-medium mb-2 block">服装タイプ:</label>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="gen-body-type" id="body-clothes" value="服" checked onchange="updateGenBodyOptions()">
+                                    <label for="body-clothes" class="text-sm cursor-pointer">服 (Clothes)</label>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="gen-body-type" id="body-underwear" value="下着" onchange="updateGenBodyOptions()">
+                                    <label for="body-underwear" class="text-sm cursor-pointer">下着 (Underwear)</label>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="gen-body-type" id="body-nude" value="ヌード" onchange="updateGenBodyOptions()">
+                                    <label for="body-nude" class="text-sm cursor-pointer">ヌード (Nude)</label>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <label class="text-xs text-muted-foreground block mb-1">詳細選択:</label>
+                                <select id="gen-body-detail" class="w-full h-9 rounded-md border border-input px-2 text-xs"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Location -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium flex items-center gap-2"><span class="bg-primary text-primary-foreground rounded-full w-6 h-6 inline-flex items-center justify-center text-xs">2</span> ロケーション選択</h3>
+                        <select id="gen-loc-select" onchange="updateGenLocWeather()" class="w-full h-10 rounded-md border border-input px-3 text-sm">
+                            <option value="">選択してください...</option>
+                        </select>
+                        
+                        <div id="gen-loc-weather-area" class="bg-muted/30 p-4 rounded-md border border-border hidden">
+                            <label class="text-sm font-medium mb-2 block">時間帯・天候:</label>
+                            <select id="gen-weather-select" class="w-full h-9 rounded-md border border-input px-2 text-xs">
+                                <option value="">指定なし</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 3. Scene -->
+                    <div class="space-y-4 md:col-span-2">
+                        <h3 class="text-lg font-medium flex items-center gap-2"><span class="bg-primary text-primary-foreground rounded-full w-6 h-6 inline-flex items-center justify-center text-xs">3</span> シーン選択</h3>
+                        
+                        <div class="bg-muted/30 p-4 rounded-md border border-border">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="gen-scene-mode" id="gen-scene-mode-section" value="section" checked onchange="updateGenSceneMode()">
+                                    <label for="gen-scene-mode-section" class="text-sm cursor-pointer">セクション</label>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="gen-scene-mode" id="gen-scene-mode-single" value="single" onchange="updateGenSceneMode()">
+                                    <label for="gen-scene-mode-single" class="text-sm cursor-pointer">シーン単体</label>
+                                </div>
+                            </div>
+                            
+                            <div id="gen-scene-section-area">
+                                <label class="text-sm font-medium mb-2 block">セクション:</label>
+                                <select id="gen-section-select" class="w-full h-10 rounded-md border border-input px-3 text-sm">
+                                    <option value="">選択してください...</option>
+                                    <option value="雰囲気作り">雰囲気作り</option>
+                                    <option value="前戯への予兆">前戯への予兆</option>
+                                    <option value="前戯・奉仕">前戯・奉仕</option>
+                                    <option value="本番・セックス">本番・セックス</option>
+                                    <option value="絶頂">絶頂</option>
+                                    <option value="ピロートーク">ピロートーク</option>
+                                </select>
+                            </div>
+                            
+                            <div id="gen-scene-single-area" class="hidden">
+                                <label class="text-sm font-medium mb-2 block">シーン:</label>
+                                <select id="gen-scene-select" class="w-full h-10 rounded-md border border-input px-3 text-sm">
+                                    <option value="">選択してください...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-border">
+                    <button onclick="generatePrompt()" class="w-full h-12 bg-primary text-primary-foreground rounded-md font-medium shadow-sm hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 12z"/><path d="M21 3v9h-9"/></svg>
+                        プロンプト生成
+                    </button>
+                </div>
+
+                <div class="mt-6 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm font-medium">生成結果</label>
+                        <div class="flex gap-2">
+                            <button onclick="copyAllResults()" class="bg-background border border-input hover:bg-accent text-xs px-3 py-1 rounded shadow-sm">全てコピー</button>
+                            <span id="result-count" class="text-xs text-muted-foreground"></span>
+                        </div>
+                    </div>
+                    <div id="result-prompt-list" class="space-y-2 max-h-96 overflow-y-auto border border-input rounded-md p-4 bg-muted/20">
+                        <div class="text-center text-muted-foreground text-sm py-8">プロンプトが生成されるとここに表示されます</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- State ---
+        let charactersData = [];
+        let locationsData = [];
+        let scenesData = [];
+        let expressionsData = [];
+        let posesData = [];
+        let compositionsData = [];
+        let anglesData = [];
+
+        // --- Composition Master Data (カテゴリ別) ---
+        const compositionCategories = [
+            {
+                name: "全身・上半身",
+                items: [
+                    { value: "full body", label: "full body（全身）" },
+                    { value: "upper body", label: "upper body（上半身）" },
+                    { value: "cowboy shot", label: "cowboy shot（頭部から膝あたりまで）" }
+                ]
+            },
+            {
+                name: "顔",
+                items: [
+                    { value: "face", label: "face（顔）" },
+                    { value: "face focus", label: "face focus（顔に焦点）" },
+                    { value: "close up", label: "close up（顔を強調）" },
+                    { value: "portrait", label: "portrait（顔・似顔絵・肖像画）" },
+                    { value: "profile", label: "profile（横顔）" }
+                ]
+            },
+            {
+                name: "視点・角度",
+                items: [
+                    { value: "front view", label: "front view（正面から）" },
+                    { value: "back view", label: "back view（後ろから）" },
+                    { value: "side view", label: "side view（横から）" },
+                    { value: "from side", label: "from side（横から）" },
+                    { value: "from above", label: "from above（上から）" },
+                    { value: "from below", label: "from below（下から）" },
+                    { value: "from behind", label: "from behind（後ろから）" },
+                    { value: "close to viewer", label: "close to viewer（視聴者目線）" }
+                ]
+            },
+            {
+                name: "フォーカス",
+                items: [
+                    { value: "single focus", label: "single focus（一人にフォーカス）" },
+                    { value: "couple focus", label: "couple focus（カップルにフォーカス）" },
+                    { value: "character focus", label: "character focus（キャラクターにフォーカス）" }
+                ]
+            },
+            {
+                name: "パーツフォーカス",
+                items: [
+                    { value: "eye focus", label: "eye focus（目にフォーカス）" },
+                    { value: "hand focus", label: "hand focus（手にフォーカス）" },
+                    { value: "foot focus", label: "foot focus（片脚～脚先）" },
+                    { value: "feet focus", label: "feet focus（両脚から脚先）" },
+                    { value: "armpit focus", label: "armpit focus（脇にフォーカス）" },
+                    { value: "hip focus", label: "hip focus（尻にフォーカス）" },
+                    { value: "back focus", label: "back focus（背中にフォーカス）" },
+                    { value: "breast focus", label: "breast focus（胸にフォーカス）" },
+                    { value: "navel focus", label: "navel focus（ヘソにフォーカス）" },
+                    { value: "thigh focus", label: "thigh focus（太ももにフォーカス）" },
+                    { value: "groin focus", label: "groin focus（鼠径部にフォーカス）" }
+                ]
+            },
+            {
+                name: "その他",
+                items: [
+                    { value: "selfie", label: "selfie（自撮り）" }
+                ]
+            }
+        ];
+
+        // フラットな配列も保持（後方互換性のため）
+        const compositionOptions = compositionCategories.flatMap(cat => cat.items);
+
+        // --- Tab Switching ---
+        function switchTab(tabName) {
+            ['characters', 'locations', 'scenes', 'generate'].forEach(name => {
+                const view = document.getElementById(`view-${name}`);
+                const nav = document.getElementById(`nav-${name}`);
+                
+                if (name === tabName) {
+                    view.classList.remove('tab-hidden');
+                    nav.classList.add('border-primary', 'text-foreground');
+                    nav.classList.remove('border-transparent', 'text-muted-foreground');
+                    
+                    // Load data if needed
+                    if (name === 'characters') loadCharacters();
+                    if (name === 'locations') loadLocations();
+                    if (name === 'scenes') { loadExpressions(); loadPoses(); loadCompositions(); loadAngles(); loadScenes(); }
+                    if (name === 'generate') initGenerateTab();
+                } else {
+                    view.classList.add('tab-hidden');
+                    nav.classList.remove('border-primary', 'text-foreground');
+                    nav.classList.add('border-transparent', 'text-muted-foreground');
+                }
+            });
+        }
+
+        // --- Helper Functions ---
+        function createInputItem(value = '') {
+            const div = document.createElement('div');
+            div.className = 'flex items-center gap-2 group';
+            div.innerHTML = `<input type="text" value="${value}" placeholder="プロンプトを入力..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"><button onclick="this.parentElement.remove()" class="text-muted-foreground hover:text-destructive transition-colors opacity-0 group-hover:opacity-100 px-2">×</button>`;
+            return div;
+        }
+        function addInput(id, val='') { document.getElementById(id).appendChild(createInputItem(val)); }
+        function getValuesFromList(id) { return Array.from(document.getElementById(id).querySelectorAll('input')).map(i=>i.value).filter(v=>v.trim()!==''); }
+        function setListValues(id, vals) { const c=document.getElementById(id); c.innerHTML=''; (vals?.length?vals:['']).forEach(v=>addInput(id,v)); }
+        const renderList = (items) => { const arr=Array.isArray(items)?items:[items]; if(!arr.length)return '<span class="text-muted-foreground italic">未設定</span>'; return `<ul class="list-disc list-inside text-sm space-y-1 text-muted-foreground">${arr.map(i=>`<li>${i}</li>`).join('')}</ul>`; };
+
+        // --- Data Loading & UI Rendering ---
+        async function loadCharacters() {
+            try {
+                charactersData = await (await fetch('/api/characters')).json();
+                const el = document.getElementById('char-list');
+                el.innerHTML = charactersData.map(c => `
+                    <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6 space-y-4">
+                        <div class="flex justify-between items-start border-b border-border pb-4">
+                            <div><h3 class="font-semibold text-lg">${c.name}</h3></div>
+                            <div class="flex gap-2"><button onclick="editChar('${c.id}')" class="text-xs border px-2 py-1 rounded">編集</button><button onclick="deleteChar('${c.id}')" class="text-xs border px-2 py-1 rounded hover:bg-destructive hover:text-destructive-foreground">削除</button></div>
+                        </div>
+                        <div class="bg-muted/30 p-3 rounded text-sm font-mono border border-border whitespace-pre-wrap">${c.prompt}</div>
+                        <div class="flex flex-col gap-2 pt-2">
+                            <div class="bg-muted/20 p-2 rounded border border-border/50"><h5 class="text-xs font-bold text-muted-foreground">服</h5>${renderList(c.bodyPrompts?.['服'])}</div>
+                            <div class="bg-muted/20 p-2 rounded border border-border/50"><h5 class="text-xs font-bold text-muted-foreground">下着</h5>${renderList(c.bodyPrompts?.['下着'])}</div>
+                            <div class="bg-muted/20 p-2 rounded border border-border/50"><h5 class="text-xs font-bold text-muted-foreground">ヌード</h5>${renderList(c.bodyPrompts?.['ヌード'])}</div>
+                        </div>
+                    </div>`).join('') || '<div class="text-center text-muted-foreground py-8">なし</div>';
+            } catch(e) { console.error(e); }
+        }
+
+        async function loadLocations() {
+            try {
+                locationsData = await (await fetch('/api/locations')).json();
+                document.getElementById('loc-list').innerHTML = locationsData.map(l => `
+                    <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6 space-y-4">
+                        <div class="flex justify-between items-start border-b border-border pb-4">
+                            <div><h3 class="font-semibold text-lg">${l.name}</h3></div>
+                            <div class="flex gap-2"><button onclick="editLoc('${l.id}')" class="text-xs border px-2 py-1 rounded">編集</button><button onclick="deleteLoc('${l.id}')" class="text-xs border px-2 py-1 rounded hover:bg-destructive hover:text-destructive-foreground">削除</button></div>
+                        </div>
+                        <div class="bg-muted/30 p-3 rounded text-sm font-mono border border-border whitespace-pre-wrap">${l.prompt}</div>
+                        <div class="bg-muted/20 p-2 rounded border border-border/50"><h5 class="text-xs font-bold text-muted-foreground">時間帯・天候</h5>${renderList(l.weatherTimePrompts)}</div>
+                    </div>`).join('') || '<div class="text-center text-muted-foreground py-8">なし</div>';
+            } catch(e) { console.error(e); }
+        }
+
+        async function loadScenes() {
+            try {
+                scenesData = await (await fetch('/api/scenes')).json();
+                const sortType = document.getElementById('scene-sort')?.value || 'registered';
+                
+                let sortedScenes = [...scenesData];
+                
+                if (sortType === 'section') {
+                    // セクション順でソート
+                    const sectionOrder = ['雰囲気作り', '前戯への予兆', '前戯・奉仕', '本番・セックス', '絶頂', 'ピロートーク'];
+                    sortedScenes.sort((a, b) => {
+                        const aSection = a.section || '未設定';
+                        const bSection = b.section || '未設定';
+                        const aIndex = sectionOrder.indexOf(aSection);
+                        const bIndex = sectionOrder.indexOf(bSection);
+                        
+                        if (aIndex === -1 && bIndex === -1) return 0;
+                        if (aIndex === -1) return 1;
+                        if (bIndex === -1) return -1;
+                        
+                        if (aIndex !== bIndex) return aIndex - bIndex;
+                        
+                        // 同じセクション内はID順
+                        return a.id.localeCompare(b.id);
+                    });
+                } else {
+                    // 登録順（新着順）- IDから数値部分を抽出して比較
+                    sortedScenes.sort((a, b) => {
+                        const aNum = parseInt(a.id.replace('scene_', '')) || 0;
+                        const bNum = parseInt(b.id.replace('scene_', '')) || 0;
+                        return bNum - aNum; // 大きい数値（新しいもの）を先に
+                    });
+                }
+                
+                // セクション順の場合はグループ化して表示
+                if (sortType === 'section') {
+                    const sectionGroups = {};
+                    sortedScenes.forEach(s => {
+                        const section = s.section || '未設定';
+                        if (!sectionGroups[section]) {
+                            sectionGroups[section] = [];
+                        }
+                        sectionGroups[section].push(s);
+                    });
+                    
+                    const sectionOrder = ['雰囲気作り', '前戯への予兆', '前戯・奉仕', '本番・セックス', '絶頂', 'ピロートーク'];
+                    const otherSections = Object.keys(sectionGroups).filter(s => !sectionOrder.includes(s));
+                    const allSections = [...sectionOrder, ...otherSections];
+                    
+                    document.getElementById('scene-list').innerHTML = allSections.map(section => {
+                        const scenes = sectionGroups[section] || [];
+                        if (scenes.length === 0) return '';
+                        
+                        return `
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 pb-2 border-b border-border sticky top-0 bg-secondary/30 backdrop-blur z-10">${section} (${scenes.length})</h3>
+                                <div class="space-y-4">
+                                    ${scenes.map(s => renderSceneCard(s)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('') || '<div class="text-center text-muted-foreground py-8">なし</div>';
+                } else {
+                    // 登録順の場合は通常表示
+                    document.getElementById('scene-list').innerHTML = sortedScenes.map(s => renderSceneCard(s)).join('') || '<div class="text-center text-muted-foreground py-8">なし</div>';
+                }
+            } catch(e) { console.error(e); }
+        }
+        
+        function renderSceneCard(s) {
+            const sectionText = s.section || '未設定';
+            const exprIds = s.expressions || [];
+            let exprText = '未設定';
+            if (exprIds.length > 0 && expressionsData.length > 0) {
+                const exprNames = exprIds.map(id => {
+                    for (const cat of expressionsData) {
+                        const expr = cat.items.find(e => e.id === id);
+                        if (expr) return expr.name;
+                    }
+                    return null;
+                }).filter(n => n);
+                exprText = exprNames.length > 0 ? exprNames.join(', ') : '未設定';
+            }
+            const poseIds = s.poses || [];
+            let poseText = '未設定';
+            if (poseIds.length > 0 && posesData.length > 0) {
+                const poseNames = poseIds.map(id => {
+                    for (const cat of posesData) {
+                        const pose = cat.items.find(p => p.id === id);
+                        if (pose) return pose.name;
+                    }
+                    return null;
+                }).filter(n => n);
+                poseText = poseNames.length > 0 ? poseNames.join(', ') : '未設定';
+            }
+            const compIds = s.compositions || [];
+            let compText = '未設定';
+            if (compIds.length > 0 && compositionsData.length > 0) {
+                const compNames = compIds.map(id => {
+                    for (const cat of compositionsData) {
+                        const comp = cat.items.find(c => c.id === id);
+                        if (comp) return comp.name;
+                    }
+                    return null;
+                }).filter(n => n);
+                compText = compNames.length > 0 ? compNames.join(', ') : '未設定';
+            }
+            const angleIds = s.angles || [];
+            let angleText = '未設定';
+            if (angleIds.length > 0 && anglesData.length > 0) {
+                const angleNames = angleIds.map(id => {
+                    for (const cat of anglesData) {
+                        const angle = cat.items.find(a => a.id === id);
+                        if (angle) return angle.name;
+                    }
+                    return null;
+                }).filter(n => n);
+                angleText = angleNames.length > 0 ? angleNames.join(', ') : '未設定';
+            }
+            return `
+            <div class="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6 space-y-4">
+                <div class="flex justify-between items-start border-b border-border pb-4">
+                    <div><h3 class="font-semibold text-lg">${s.tag}</h3><p class="text-xs text-muted-foreground">セクション: ${sectionText}</p></div>
+                    <div class="flex gap-2"><button onclick="editScene('${s.id}')" class="text-xs border px-2 py-1 rounded">編集</button><button onclick="deleteScene('${s.id}')" class="text-xs border px-2 py-1 rounded hover:bg-destructive hover:text-destructive-foreground">削除</button></div>
+                </div>
+                <div class="bg-muted/30 p-3 rounded text-sm font-mono border border-border whitespace-pre-wrap">${s.prompt}</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
+                    <div class="bg-muted/20 p-2 rounded border border-border/50"><strong>セクション:</strong> ${sectionText}</div>
+                    <div class="bg-muted/20 p-2 rounded border border-border/50"><strong>感情:</strong> ${exprText}</div>
+                    <div class="bg-muted/20 p-2 rounded border border-border/50"><strong>ポーズ:</strong> ${poseText}</div>
+                    <div class="bg-muted/20 p-2 rounded border border-border/50"><strong>構図:</strong> ${compText}</div>
+                    <div class="bg-muted/20 p-2 rounded border border-border/50"><strong>アングル:</strong> ${angleText}</div>
+                </div>
+            </div>`;
+        }
+
+        // --- CRUD Operations ---
+        // Character
+        function editChar(id) {
+            const d = charactersData.find(c => c.id === id);
+            if(!d) return;
+            document.getElementById('character-id').value = d.id;
+            document.getElementById('char-name').value = d.name;
+            document.getElementById('char-prompt').value = d.prompt;
+            setListValues('list-clothes', d.bodyPrompts?.['服']);
+            setListValues('list-underwear', d.bodyPrompts?.['下着']);
+            setListValues('list-nude', d.bodyPrompts?.['ヌード']);
+            document.getElementById('char-form-title').textContent = 'キャラクター編集';
+            document.getElementById('char-submit-btn').textContent = '更新する';
+            document.getElementById('char-cancel-btn').style.display = 'inline-flex';
+            document.querySelector('#view-characters .overflow-y-auto').scrollTo({top:0,behavior:'smooth'});
+        }
+        function resetCharForm() {
+            document.getElementById('character-id').value = '';
+            document.getElementById('char-name').value = '';
+            document.getElementById('char-prompt').value = '';
+            setListValues('list-clothes', ['wearing clothes, casual outfit']);
+            setListValues('list-underwear', ['bra, lace panties']);
+            setListValues('list-nude', ['nude, naked']);
+            document.getElementById('char-form-title').textContent = 'キャラクター登録';
+            document.getElementById('char-submit-btn').textContent = '登録する';
+            document.getElementById('char-cancel-btn').style.display = 'none';
+        }
+        async function saveCharacter() {
+            const id = document.getElementById('character-id').value;
+            const name = document.getElementById('char-name').value;
+            const prompt = document.getElementById('char-prompt').value;
+            if(!name || !prompt) return alert('必須項目を入力してください');
+            const bodyData = { name, prompt, bodyPrompts: { "服": getValuesFromList('list-clothes'), "下着": getValuesFromList('list-underwear'), "ヌード": getValuesFromList('list-nude') } };
+            await fetch(id ? `/api/characters/${id}` : '/api/characters', { method: id?'PUT':'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(bodyData) });
+            resetCharForm(); loadCharacters();
+        }
+        async function deleteChar(id) { if(confirm('削除しますか？')) { await fetch(`/api/characters/${id}`, {method:'DELETE'}); if(document.getElementById('character-id').value===id) resetCharForm(); loadCharacters(); } }
+
+        // Location
+        function editLoc(id) {
+            const d = locationsData.find(l => l.id === id);
+            if(!d) return;
+            document.getElementById('location-id').value = d.id;
+            document.getElementById('loc-name').value = d.name;
+            document.getElementById('loc-prompt').value = d.prompt;
+            setListValues('list-weather', d.weatherTimePrompts);
+            document.getElementById('loc-form-title').textContent = 'ロケーション編集';
+            document.getElementById('loc-submit-btn').textContent = '更新する';
+            document.getElementById('loc-cancel-btn').style.display = 'inline-flex';
+            document.querySelector('#view-locations .overflow-y-auto').scrollTo({top:0,behavior:'smooth'});
+        }
+        function resetLocForm() {
+            document.getElementById('location-id').value = '';
+            document.getElementById('loc-name').value = '';
+            document.getElementById('loc-prompt').value = '';
+            setListValues('list-weather', ["daytime, sunny, clear sky", "sunset, evening, orange sky", "night, night view", "cloudy"]);
+            document.getElementById('loc-form-title').textContent = 'ロケーション登録';
+            document.getElementById('loc-submit-btn').textContent = '登録する';
+            document.getElementById('loc-cancel-btn').style.display = 'none';
+        }
+        async function saveLocation() {
+            const id = document.getElementById('location-id').value;
+            const name = document.getElementById('loc-name').value;
+            const prompt = document.getElementById('loc-prompt').value;
+            if(!name || !prompt) return alert('必須項目を入力してください');
+            const bodyData = { name, prompt, weatherTimePrompts: getValuesFromList('list-weather') };
+            await fetch(id ? `/api/locations/${id}` : '/api/locations', { method: id?'PUT':'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(bodyData) });
+            resetLocForm(); loadLocations();
+        }
+        async function deleteLoc(id) { if(confirm('削除しますか？')) { await fetch(`/api/locations/${id}`, {method:'DELETE'}); if(document.getElementById('location-id').value===id) resetLocForm(); loadLocations(); } }
+
+        // Scene
+        async function loadExpressions() {
+            try {
+                const data = await (await fetch('/api/expressions')).json();
+                expressionsData = data;
+                initSceneExpressions();
+            } catch(e) { console.error(e); }
+        }
+        async function loadPoses() {
+            try {
+                const data = await (await fetch('/api/poses')).json();
+                posesData = data;
+                initScenePoses();
+            } catch(e) { console.error(e); }
+        }
+        async function loadCompositions() {
+            try {
+                const data = await (await fetch('/api/compositions')).json();
+                compositionsData = data;
+                initSceneCompositions();
+            } catch(e) { console.error(e); }
+        }
+        async function loadAngles() {
+            try {
+                const data = await (await fetch('/api/angles')).json();
+                anglesData = data;
+                initSceneAngles();
+            } catch(e) { console.error(e); }
+        }
+        function initSceneExpressions() {
+            const container = document.getElementById('scene-expressions');
+            if (!container || !expressionsData || expressionsData.length === 0) return;
+            
+            container.innerHTML = expressionsData.map(cat => `
+                <div class="expression-category" data-category="${cat.category}">
+                    <h4 class="text-xs font-semibold text-muted-foreground mb-2 pb-1 border-b border-border/50">${cat.category}</h4>
+                    <div class="grid grid-cols-1 gap-1.5">
+                        ${cat.items.map(expr => `
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="expr-${expr.id}" value="${expr.id}" data-prompt="${expr.prompt}" class="rounded border-input">
+                                <label for="expr-${expr.id}" class="text-xs cursor-pointer hover:text-primary transition-colors">${expr.name}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        function filterExpressions() {
+            const searchTerm = document.getElementById('expr-search').value.toLowerCase();
+            const categories = document.querySelectorAll('.expression-category');
+            
+            categories.forEach(cat => {
+                const items = cat.querySelectorAll('div');
+                let hasVisible = false;
+                
+                items.forEach(item => {
+                    const label = item.querySelector('label');
+                    if (label) {
+                        const text = label.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+                
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        }
+        function initScenePoses() {
+            const container = document.getElementById('scene-poses');
+            if (!container || !posesData || posesData.length === 0) return;
+            
+            container.innerHTML = posesData.map(cat => `
+                <div class="pose-category" data-category="${cat.category}">
+                    <h4 class="text-xs font-semibold text-muted-foreground mb-2 pb-1 border-b border-border/50">${cat.category}</h4>
+                    <div class="grid grid-cols-1 gap-1.5">
+                        ${cat.items.map(pose => `
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="pose-${pose.id}" value="${pose.id}" data-prompt="${pose.prompt}" class="rounded border-input">
+                                <label for="pose-${pose.id}" class="text-xs cursor-pointer hover:text-primary transition-colors">${pose.name}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        function filterPoses() {
+            const searchTerm = document.getElementById('pose-search').value.toLowerCase();
+            const categories = document.querySelectorAll('.pose-category');
+            
+            categories.forEach(cat => {
+                const items = cat.querySelectorAll('div');
+                let hasVisible = false;
+                
+                items.forEach(item => {
+                    const label = item.querySelector('label');
+                    if (label) {
+                        const text = label.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+                
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        }
+        function initSceneCompositions() {
+            const container = document.getElementById('scene-compositions');
+            if (!container || !compositionsData || compositionsData.length === 0) return;
+            
+            container.innerHTML = compositionsData.map(cat => `
+                <div class="composition-category" data-category="${cat.category}">
+                    <h4 class="text-xs font-semibold text-muted-foreground mb-2 pb-1 border-b border-border/50">${cat.category}</h4>
+                    <div class="grid grid-cols-1 gap-1.5">
+                        ${cat.items.map(comp => `
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="comp-${comp.id}" value="${comp.id}" data-prompt="${comp.prompt}" class="rounded border-input">
+                                <label for="comp-${comp.id}" class="text-xs cursor-pointer hover:text-primary transition-colors">${comp.name}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        function filterCompositions() {
+            const searchTerm = document.getElementById('comp-search').value.toLowerCase();
+            const categories = document.querySelectorAll('.composition-category');
+            
+            categories.forEach(cat => {
+                const items = cat.querySelectorAll('div');
+                let hasVisible = false;
+                
+                items.forEach(item => {
+                    const label = item.querySelector('label');
+                    if (label) {
+                        const text = label.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+                
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        }
+        function initSceneAngles() {
+            const container = document.getElementById('scene-angles');
+            if (!container || !anglesData || anglesData.length === 0) return;
+            
+            container.innerHTML = anglesData.map(cat => `
+                <div class="angle-category" data-category="${cat.category}">
+                    <h4 class="text-xs font-semibold text-muted-foreground mb-2 pb-1 border-b border-border/50">${cat.category}</h4>
+                    <div class="grid grid-cols-1 gap-1.5">
+                        ${cat.items.map(angle => `
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="angle-${angle.id}" value="${angle.id}" data-prompt="${angle.prompt}" class="rounded border-input">
+                                <label for="angle-${angle.id}" class="text-xs cursor-pointer hover:text-primary transition-colors">${angle.name}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        function filterAngles() {
+            const searchTerm = document.getElementById('angle-search').value.toLowerCase();
+            const categories = document.querySelectorAll('.angle-category');
+            
+            categories.forEach(cat => {
+                const items = cat.querySelectorAll('div');
+                let hasVisible = false;
+                
+                items.forEach(item => {
+                    const label = item.querySelector('label');
+                    if (label) {
+                        const text = label.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+                
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        }
+        function editScene(id) {
+            const d = scenesData.find(s => s.id === id);
+            if(!d) return;
+            document.getElementById('scene-id').value = d.id;
+            document.getElementById('scene-tag').value = d.tag || '';
+            document.getElementById('scene-prompt').value = d.prompt || '';
+            document.getElementById('scene-section').value = d.section || '';
+            document.getElementById('scene-nsfw').checked = d.nsfw || false;
+            document.getElementById('scene-sex').checked = d.sex || false;
+            
+            // 感情チェックボックスを設定
+            const selectedExprs = d.expressions || [];
+            document.querySelectorAll('#scene-expressions input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = selectedExprs.includes(checkbox.value);
+            });
+            
+            // ポーズチェックボックスを設定
+            const selectedPoses = d.poses || [];
+            document.querySelectorAll('#scene-poses input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = selectedPoses.includes(checkbox.value);
+            });
+            
+            // 構図チェックボックスを設定
+            const selectedComps = d.compositions || [];
+            document.querySelectorAll('#scene-compositions input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = selectedComps.includes(checkbox.value);
+            });
+            
+            // アングルチェックボックスを設定
+            const selectedAngles = d.angles || [];
+            document.querySelectorAll('#scene-angles input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = selectedAngles.includes(checkbox.value);
+            });
+            
+            document.getElementById('scene-form-title').textContent = 'シーン編集';
+            document.getElementById('scene-submit-btn').textContent = '更新する';
+            document.getElementById('scene-cancel-btn').style.display = 'inline-flex';
+            document.querySelector('#view-scenes .overflow-y-auto').scrollTo({top:0,behavior:'smooth'});
+        }
+        function resetSceneForm() {
+            document.getElementById('scene-id').value = '';
+            document.getElementById('scene-tag').value = '';
+            document.getElementById('scene-prompt').value = '';
+            document.getElementById('scene-section').value = '';
+            document.getElementById('scene-nsfw').checked = false;
+            document.getElementById('scene-sex').checked = false;
+            
+            // 感情チェックボックスをリセット
+            document.querySelectorAll('#scene-expressions input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // ポーズチェックボックスをリセット
+            document.querySelectorAll('#scene-poses input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // 構図チェックボックスをリセット
+            document.querySelectorAll('#scene-compositions input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // アングルチェックボックスをリセット
+            document.querySelectorAll('#scene-angles input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            document.getElementById('scene-form-title').textContent = 'シーン登録';
+            document.getElementById('scene-submit-btn').textContent = '登録する';
+            document.getElementById('scene-cancel-btn').style.display = 'none';
+        }
+        async function saveScene() {
+            const id = document.getElementById('scene-id').value;
+            const tag = document.getElementById('scene-tag').value;
+            const prompt = document.getElementById('scene-prompt').value;
+            const section = document.getElementById('scene-section').value;
+            const nsfw = document.getElementById('scene-nsfw').checked;
+            const sex = document.getElementById('scene-sex').checked;
+            
+            // 選択された感情IDを取得
+            const expressions = Array.from(document.querySelectorAll('#scene-expressions input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            // 選択されたポーズIDを取得
+            const poses = Array.from(document.querySelectorAll('#scene-poses input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            // 選択された構図IDを取得
+            const compositions = Array.from(document.querySelectorAll('#scene-compositions input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            // 選択されたアングルIDを取得
+            const angles = Array.from(document.querySelectorAll('#scene-angles input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            if(!tag || !prompt) return alert('タグとプロンプトは必須です');
+            const bodyData = { tag, prompt, section, expressions, poses, compositions, angles, nsfw, sex };
+            await fetch(id ? `/api/scenes/${id}` : '/api/scenes', { method: id?'PUT':'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(bodyData) });
+            resetSceneForm(); loadScenes();
+        }
+        async function deleteScene(id) { if(confirm('削除しますか？')) { await fetch(`/api/scenes/${id}`, {method:'DELETE'}); if(document.getElementById('scene-id').value===id) resetSceneForm(); loadScenes(); } }
+
+        // --- Generate Tab Logic ---
+        async function initGenerateTab() {
+            await Promise.all([loadCharacters(), loadLocations(), loadScenes(), loadExpressions(), loadPoses(), loadCompositions(), loadAngles()]); // 最新データ取得
+            
+            const charSelect = document.getElementById('gen-char-select');
+            charSelect.innerHTML = '<option value="">選択してください...</option>' + charactersData.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+            
+            const locSelect = document.getElementById('gen-loc-select');
+            locSelect.innerHTML = '<option value="">選択してください...</option>' + locationsData.map(l => `<option value="${l.id}">${l.name}</option>`).join('');
+            
+            const sceneSelect = document.getElementById('gen-scene-select');
+            sceneSelect.innerHTML = '<option value="">選択してください...</option>' + scenesData.map(s => `<option value="${s.id}">${s.tag}</option>`).join('');
+            
+            updateGenSceneMode();
+            updateGenCharBody();
+            updateGenLocWeather();
+        }
+        
+        function updateGenSceneMode() {
+            const mode = document.querySelector('input[name="gen-scene-mode"]:checked')?.value || 'section';
+            const sectionArea = document.getElementById('gen-scene-section-area');
+            const singleArea = document.getElementById('gen-scene-single-area');
+            
+            if (mode === 'section') {
+                sectionArea.classList.remove('hidden');
+                singleArea.classList.add('hidden');
+            } else {
+                sectionArea.classList.add('hidden');
+                singleArea.classList.remove('hidden');
+            }
+        }
+
+        function filterGenCompositions() {
+            const searchTerm = document.getElementById('gen-comp-search').value.toLowerCase();
+            const categories = document.querySelectorAll('.gen-composition-category');
+            
+            categories.forEach(cat => {
+                const items = cat.querySelectorAll('div');
+                let hasVisible = false;
+                
+                items.forEach(item => {
+                    const label = item.querySelector('label');
+                    if (label) {
+                        const text = label.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+                
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        }
+
+        function updateGenCharBody() {
+            const charId = document.getElementById('gen-char-select').value;
+            const area = document.getElementById('gen-char-body-area');
+            
+            if (!charId) {
+                area.classList.add('hidden');
+                return;
+            }
+            area.classList.remove('hidden');
+            updateGenBodyOptions();
+        }
+
+        function updateGenBodyOptions() {
+            const charId = document.getElementById('gen-char-select').value;
+            const char = charactersData.find(c => c.id === charId);
+            const type = document.querySelector('input[name="gen-body-type"]:checked').value;
+            const detailSelect = document.getElementById('gen-body-detail');
+            
+            detailSelect.innerHTML = '';
+            
+            if (char && char.bodyPrompts && char.bodyPrompts[type]) {
+                const options = Array.isArray(char.bodyPrompts[type]) ? char.bodyPrompts[type] : [char.bodyPrompts[type]];
+                options.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt;
+                    option.textContent = opt;
+                    detailSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateGenLocWeather() {
+            const locId = document.getElementById('gen-loc-select').value;
+            const area = document.getElementById('gen-loc-weather-area');
+            const weatherSelect = document.getElementById('gen-weather-select');
+            
+            if (!locId) {
+                area.classList.add('hidden');
+                return;
+            }
+            area.classList.remove('hidden');
+            weatherSelect.innerHTML = '<option value="">指定なし</option>';
+            
+            const loc = locationsData.find(l => l.id === locId);
+            if (loc && loc.weatherTimePrompts) {
+                loc.weatherTimePrompts.forEach(w => {
+                    const option = document.createElement('option');
+                    option.value = w;
+                    option.textContent = w;
+                    weatherSelect.appendChild(option);
+                });
+            }
+        }
+
+        function generatePrompt() {
+            const charId = document.getElementById('gen-char-select').value;
+            const locId = document.getElementById('gen-loc-select').value;
+            
+            const char = charactersData.find(c => c.id === charId);
+            const loc = locationsData.find(l => l.id === locId);
+            
+            if (!char || !loc) {
+                alert('キャラクターとロケーションを選択してください');
+                return;
+            }
+            
+            // シーン選択モードを取得
+            const mode = document.querySelector('input[name="gen-scene-mode"]:checked')?.value || 'section';
+            let targetScenes = [];
+            
+            if (mode === 'section') {
+                const section = document.getElementById('gen-section-select').value;
+                if (!section) {
+                    alert('セクションを選択してください');
+                    return;
+                }
+                targetScenes = scenesData.filter(s => s.section === section);
+            } else {
+                const sceneId = document.getElementById('gen-scene-select').value;
+                if (!sceneId) {
+                    alert('シーンを選択してください');
+                    return;
+                }
+                const scene = scenesData.find(s => s.id === sceneId);
+                if (scene) {
+                    targetScenes = [scene];
+                }
+            }
+            
+            if (targetScenes.length === 0) {
+                alert('シーンが見つかりません');
+                return;
+            }
+            
+            // Body
+            const selectedBodyPrompt = document.getElementById('gen-body-detail').value;
+            
+            // Weather
+            const weatherPrompt = document.getElementById('gen-weather-select').value;
+            
+            // 基本プロンプト
+            const common = "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight";
+            const baseParts = [
+                common,
+                char.prompt,
+                loc.prompt,
+                weatherPrompt,
+                selectedBodyPrompt
+            ].filter(p => p && p.trim() !== '');
+            
+            // 全プロンプトリストを生成
+            const allPrompts = [];
+            
+            for (const scene of targetScenes) {
+                // シーンの基本プロンプト
+                const sceneBase = scene.prompt || '';
+                
+                // シーンに設定された構図、アングル、感情、ポーズを取得
+                const sceneCompositions = scene.compositions || [];
+                const sceneAngles = scene.angles || [];
+                const sceneExpressions = scene.expressions || [];
+                const scenePoses = scene.poses || [];
+                
+                // マスターデータからプロンプトを取得する関数
+                const getCompositionPrompt = (id) => {
+                    for (const cat of compositionsData) {
+                        const item = cat.items.find(c => c.id === id);
+                        if (item) return item.prompt;
+                    }
+                    return '';
+                };
+                
+                const getAnglePrompt = (id) => {
+                    for (const cat of anglesData) {
+                        const item = cat.items.find(a => a.id === id);
+                        if (item) return item.prompt;
+                    }
+                    return '';
+                };
+                
+                const getExpressionPrompt = (id) => {
+                    for (const cat of expressionsData) {
+                        const item = cat.items.find(e => e.id === id);
+                        if (item) return item.prompt;
+                    }
+                    return '';
+                };
+                
+                const getPosePrompt = (id) => {
+                    for (const cat of posesData) {
+                        const item = cat.items.find(p => p.id === id);
+                        if (item) return item.prompt;
+                    }
+                    return '';
+                };
+                
+                // 構図×アングル×感情×ポーズの組み合わせを生成
+                // 各要素が空の場合は1つの組み合わせのみ
+                const compList = sceneCompositions.length > 0 ? sceneCompositions : [null];
+                const angleList = sceneAngles.length > 0 ? sceneAngles : [null];
+                const exprList = sceneExpressions.length > 0 ? sceneExpressions : [null];
+                const poseList = scenePoses.length > 0 ? scenePoses : [null];
+                
+                for (const compId of compList) {
+                    for (const angleId of angleList) {
+                        for (const exprId of exprList) {
+                            for (const poseId of poseList) {
+                                // プロンプトを構造化して生成
+                                const promptSections = {
+                                    quality: [],      // 品質タグ
+                                    character: [],    // キャラクター（括弧で囲む）
+                                    location: [],     // ロケーション
+                                    clothing: [],     // 服装（括弧で囲む）
+                                    scene: [],        // シーン
+                                    composition: [],  // 構図・アングル
+                                    expression: [],   // 感情
+                                    pose: [],         // ポーズ
+                                    tags: []          // NSFW/SEXタグ
+                                };
+                                
+                                // 1. 品質タグ
+                                promptSections.quality.push(common);
+                                
+                                // 2. キャラクター（括弧で囲む）
+                                if (char.prompt) {
+                                    promptSections.character.push(char.prompt);
+                                }
+                                
+                                // 3. ロケーション
+                                if (loc.prompt) {
+                                    promptSections.location.push(loc.prompt);
+                                }
+                                if (weatherPrompt) {
+                                    promptSections.location.push(weatherPrompt);
+                                }
+                                
+                                // 4. 服装（括弧で囲む）
+                                if (selectedBodyPrompt) {
+                                    promptSections.clothing.push(selectedBodyPrompt);
+                                }
+                                
+                                // 5. シーン
+                                if (sceneBase) {
+                                    promptSections.scene.push(sceneBase);
+                                }
+                                
+                                // 6. 構図・アングル
+                                if (compId) {
+                                    const compPrompt = getCompositionPrompt(compId);
+                                    if (compPrompt) promptSections.composition.push(compPrompt);
+                                }
+                                if (angleId) {
+                                    const anglePrompt = getAnglePrompt(angleId);
+                                    if (anglePrompt) promptSections.composition.push(anglePrompt);
+                                }
+                                
+                                // 7. 感情
+                                if (exprId) {
+                                    const exprPrompt = getExpressionPrompt(exprId);
+                                    if (exprPrompt) promptSections.expression.push(exprPrompt);
+                                }
+                                
+                                // 8. ポーズ
+                                if (poseId) {
+                                    const posePrompt = getPosePrompt(poseId);
+                                    if (posePrompt) promptSections.pose.push(posePrompt);
+                                }
+                                
+                                // 9. NSFWとSEXタグ
+                                if (scene.nsfw) {
+                                    promptSections.tags.push('nsfw');
+                                }
+                                if (scene.sex) {
+                                    promptSections.tags.push('sex');
+                                }
+                                
+                                // プロンプトを組み立て
+                                const finalParts = [];
+                                
+                                // 品質タグ
+                                if (promptSections.quality.length > 0) {
+                                    finalParts.push(promptSections.quality.join(', '));
+                                }
+                                
+                                // キャラクター（括弧で囲む）
+                                if (promptSections.character.length > 0) {
+                                    finalParts.push(`(${promptSections.character.join(', ')})`);
+                                }
+                                
+                                // ロケーション
+                                if (promptSections.location.length > 0) {
+                                    finalParts.push(promptSections.location.join(', '));
+                                }
+                                
+                                // 服装（括弧で囲む）
+                                if (promptSections.clothing.length > 0) {
+                                    finalParts.push(`(${promptSections.clothing.join(', ')})`);
+                                }
+                                
+                                // シーン
+                                if (promptSections.scene.length > 0) {
+                                    finalParts.push(promptSections.scene.join(', '));
+                                }
+                                
+                                // 構図・アングル
+                                if (promptSections.composition.length > 0) {
+                                    finalParts.push(promptSections.composition.join(', '));
+                                }
+                                
+                                // 感情
+                                if (promptSections.expression.length > 0) {
+                                    finalParts.push(promptSections.expression.join(', '));
+                                }
+                                
+                                // ポーズ
+                                if (promptSections.pose.length > 0) {
+                                    finalParts.push(promptSections.pose.join(', '));
+                                }
+                                
+                                // タグ
+                                if (promptSections.tags.length > 0) {
+                                    finalParts.push(promptSections.tags.join(', '));
+                                }
+                                
+                                allPrompts.push({
+                                    sceneTag: scene.tag,
+                                    prompt: finalParts.join(', ')
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 結果を表示
+            displayPromptResults(allPrompts);
+        }
+        
+        function displayPromptResults(prompts) {
+            const container = document.getElementById('result-prompt-list');
+            const countEl = document.getElementById('result-count');
+            
+            countEl.textContent = `${prompts.length}件のプロンプト`;
+            
+            if (prompts.length === 0) {
+                container.innerHTML = '<div class="text-center text-muted-foreground text-sm py-8">プロンプトが生成されませんでした</div>';
+                return;
+            }
+            
+            container.innerHTML = prompts.map((p, index) => `
+                <div class="bg-background border border-border rounded-md p-3 flex items-start gap-3">
+                    <div class="flex-1">
+                        <div class="text-xs text-muted-foreground mb-1">${p.sceneTag}</div>
+                        <div class="text-sm font-mono break-all">${p.prompt}</div>
+                    </div>
+                    <button onclick="copySinglePrompt(${index})" class="bg-background border border-input hover:bg-accent text-xs px-2 py-1 rounded shadow-sm whitespace-nowrap">コピー</button>
+                </div>
+            `).join('');
+            
+            // グローバルに保存（コピー用）
+            window.generatedPrompts = prompts;
+        }
+        
+        function copySinglePrompt(index) {
+            if (window.generatedPrompts && window.generatedPrompts[index]) {
+                navigator.clipboard.writeText(window.generatedPrompts[index].prompt).then(() => {
+                    alert('コピーしました');
+                });
+            }
+        }
+        
+        function copyAllResults() {
+            if (window.generatedPrompts && window.generatedPrompts.length > 0) {
+                const allText = window.generatedPrompts.map(p => p.prompt).join('\n');
+                navigator.clipboard.writeText(allText).then(() => {
+                    alert(`${window.generatedPrompts.length}件のプロンプトをコピーしました`);
+                });
+            }
+        }
+
+        // Init
+        loadCharacters();
+    </script>
+</body>
+</html>

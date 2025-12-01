@@ -1,0 +1,9 @@
+node_modules/
+output/
+*.log
+.DS_Store
+.env
+.vercel
+.browser-data
+generated-images/
+

@@ -1,0 +1,531 @@
+{
+  "scenario": {
+    "title": "シャワーの後の、甘い挑発",
+    "location": "ユーザーの部屋",
+    "character": "天羽 リナ"
+  },
+  "generatedAt": "2025-12-01T07:07:17.423Z",
+  "count": 20,
+  "prompts": [
+    {
+      "phase": "雰囲気作り",
+      "meroRange": [
+        0,
+        14
+      ],
+      "sceneTag": "照れ顔",
+      "scenePrompt": "blushing, shy face",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "blushing, looking away, shy smile",
+      "pose": "standing",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), blushing, shy face, face, from above, blushing, looking away, shy smile, standing",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "照れ顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "blushing, looking away, shy smile",
+        "pose": "standing",
+        "nsfw": "なし",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "雰囲気作り",
+      "meroRange": [
+        0,
+        14
+      ],
+      "sceneTag": "笑顔",
+      "scenePrompt": "smile, happy face",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "gentle smile, warm expression",
+      "pose": "standing",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), smile, happy face, face, from above, gentle smile, warm expression, standing",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "笑顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "gentle smile, warm expression",
+        "pose": "standing",
+        "nsfw": "なし",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "雰囲気作り",
+      "meroRange": [
+        0,
+        14
+      ],
+      "sceneTag": "悲しい顔",
+      "scenePrompt": "sad face",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "teary eyes, sad expression",
+      "pose": "standing",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), sad face, face, from above, teary eyes, sad expression, standing",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "悲しい顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "teary eyes, sad expression",
+        "pose": "standing",
+        "nsfw": "なし",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯への予兆",
+      "meroRange": [
+        15,
+        29
+      ],
+      "sceneTag": "ほてった顔",
+      "scenePrompt": "flushed face, aroused",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "flushed face, aroused",
+      "pose": "standing",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), flushed face, aroused, face, from above, flushed face, aroused, standing, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "ほてった顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "flushed face, aroused",
+        "pose": "standing",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯への予兆",
+      "meroRange": [
+        15,
+        29
+      ],
+      "sceneTag": "キス顔",
+      "scenePrompt": "kissing face, lips pouting",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "flushed face, aroused",
+      "pose": "standing",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), kissing face, lips pouting, face, from above, flushed face, aroused, standing, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "キス顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "flushed face, aroused",
+        "pose": "standing",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯への予兆",
+      "meroRange": [
+        15,
+        29
+      ],
+      "sceneTag": "トロ顔",
+      "scenePrompt": "ahegao, rolling eyes, tongue out",
+      "composition": "face",
+      "angle": "from above",
+      "expression": "relaxed face",
+      "pose": "sitting",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (towel, bath towel, wrapped in towel), ahegao, rolling eyes, tongue out, face, from above, relaxed face, sitting, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "towel, bath towel, wrapped in towel",
+        "scene": "トロ顔",
+        "composition": "face",
+        "angle": "from above",
+        "expression": "relaxed face",
+        "pose": "sitting",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯",
+      "meroRange": [
+        30,
+        44
+      ],
+      "sceneTag": "乳首を触られている",
+      "scenePrompt": "nipple play, touching nipples",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (bra), nipple play, touching nipples, upper body, from above, holding back pleasure, trying to suppress moan, on back, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "bra",
+        "scene": "乳首を触られている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯",
+      "meroRange": [
+        30,
+        44
+      ],
+      "sceneTag": "手コキしている",
+      "scenePrompt": "handjob, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (bra), handjob, penis, upper body, from above, holding back pleasure, trying to suppress moan, on back, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "bra",
+        "scene": "手コキしている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "前戯",
+      "meroRange": [
+        30,
+        44
+      ],
+      "sceneTag": "クンニされている",
+      "scenePrompt": "cunnilingus",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (bra), cunnilingus, upper body, from above, holding back pleasure, trying to suppress moan, on back, nsfw",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "bra",
+        "scene": "クンニされている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "なし"
+      }
+    },
+    {
+      "phase": "本番への予兆",
+      "meroRange": [
+        45,
+        64
+      ],
+      "sceneTag": "素股している",
+      "scenePrompt": "sumata, femoral sex, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), sumata, femoral sex, penis, upper body, from above, holding back pleasure, trying to suppress moan, on back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "素股している",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "本番への予兆",
+      "meroRange": [
+        45,
+        64
+      ],
+      "sceneTag": "挿入を待っている",
+      "scenePrompt": "high quality, detailed, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "flushed face, aroused",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), high quality, detailed, penis, upper body, from above, flushed face, aroused, on back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "挿入を待っている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "flushed face, aroused",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "本番行為",
+      "meroRange": [
+        65,
+        84
+      ],
+      "sceneTag": "騎乗位で挿入している",
+      "scenePrompt": "cowgirl position, straddling, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "legs apart",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), cowgirl position, straddling, penis, upper body, from above, holding back pleasure, trying to suppress moan, legs apart, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "騎乗位で挿入している",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "legs apart",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "本番行為",
+      "meroRange": [
+        65,
+        84
+      ],
+      "sceneTag": "松葉崩しで挿入している",
+      "scenePrompt": "mating press, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "holding back pleasure, trying to suppress moan",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), mating press, penis, upper body, from above, holding back pleasure, trying to suppress moan, on back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "松葉崩しで挿入している",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "holding back pleasure, trying to suppress moan",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "本番行為",
+      "meroRange": [
+        65,
+        84
+      ],
+      "sceneTag": "アヘ顔",
+      "scenePrompt": "ahegao, extreme orgasm face, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "writhing in pleasure, squirming",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), ahegao, extreme orgasm face, penis, upper body, from above, writhing in pleasure, squirming, on back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "アヘ顔",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "writhing in pleasure, squirming",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂への予兆",
+      "meroRange": [
+        85,
+        99
+      ],
+      "sceneTag": "仰け反り絶頂",
+      "scenePrompt": "Adam's apple, leaning back, arched back, head back, woman on top, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "arched back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), Adam's apple, leaning back, arched back, head back, woman on top, penis, upper body, from above, orgasm face, climax expression, arched back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "仰け反り絶頂",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "arched back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂への予兆",
+      "meroRange": [
+        85,
+        99
+      ],
+      "sceneTag": "口内に射精されている",
+      "scenePrompt": "cum in mouth, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "arched back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), cum in mouth, penis, upper body, from above, orgasm face, climax expression, arched back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "口内に射精されている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "arched back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂への予兆",
+      "meroRange": [
+        85,
+        99
+      ],
+      "sceneTag": "しゃがんで後ろに手をつく仰け反り絶頂",
+      "scenePrompt": "squatting, hands on behind, knee apart, Adam's apple, leaning back, arched back, head back, woman on top, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "arched back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), squatting, hands on behind, knee apart, Adam's apple, leaning back, arched back, head back, woman on top, penis, upper body, from above, orgasm face, climax expression, arched back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "しゃがんで後ろに手をつく仰け反り絶頂",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "arched back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂",
+      "meroRange": [
+        100,
+        100
+      ],
+      "sceneTag": "潮吹きをしている",
+      "scenePrompt": "squirting, female ejaculation, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "arched back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), squirting, female ejaculation, penis, upper body, from above, orgasm face, climax expression, arched back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "潮吹きをしている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "arched back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂",
+      "meroRange": [
+        100,
+        100
+      ],
+      "sceneTag": "顔に射精されている",
+      "scenePrompt": "cum on face, facial, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "on back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), cum on face, facial, penis, upper body, from above, orgasm face, climax expression, on back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "顔に射精されている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "on back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    },
+    {
+      "phase": "絶頂",
+      "meroRange": [
+        100,
+        100
+      ],
+      "sceneTag": "胸に射精されている",
+      "scenePrompt": "cum on breasts, penis",
+      "composition": "upper body",
+      "angle": "from above",
+      "expression": "orgasm face, climax expression",
+      "pose": "arched back",
+      "prompt": "masterpiece, best quality, exquisite, depth of field, dithering, detailed, anime style, anime artwork, douyin eyes, delicate, clicky eyes, bright highlight, (gyaru, light gray eyes, pale skin, shiny skin, rosy cheeks, large eyes, double eyelids, slender build, 165cm height, huge breasts, 18years old, blonde long straight hair, bangs, neomero, rina), indoors, inside a room, inside the house, (nude, naked, middle nipples, ), cum on breasts, penis, upper body, from above, orgasm face, climax expression, arched back, nsfw, sex",
+      "description": {
+        "character": "天羽 リナ",
+        "location": "家の中 (Indoors)",
+        "body": "nude, naked, middle nipples, ",
+        "scene": "胸に射精されている",
+        "composition": "upper body",
+        "angle": "from above",
+        "expression": "orgasm face, climax expression",
+        "pose": "arched back",
+        "nsfw": "あり",
+        "sex": "あり"
+      }
+    }
+  ]
+}
